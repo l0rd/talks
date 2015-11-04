@@ -147,20 +147,20 @@ layout: false
 ]
 .right-column[
 
-### Custom images can be build from a Dockerfile
+### Custom images can be built from a Dockerfile
 
 ```Dockerfile
 FROM tomcat
 
 # copy application in web app folder
-COPY hello-eclipsecon.war /usr/local/tomcat/webapps/ROOT.war
+COPY hello-eclipsecon.war /usr/local/tomcat/webapps/
 
 # define containers default command
 CMD catalina.sh run
 ```
 
 ```bash
-docker build -t hello-eclipsecon ./project-dir
+docker build -t hello-eclipsecon .
 ```
 
 ### Resulting image is built on top of the base image
@@ -196,11 +196,11 @@ docker run -d hello-eclipsecon
 
 ```Dockerfile
 FROM maven
+COPY src /usr/local/helloeclipsecon/src
+COPY pom.xml /usr/local/helloeclipsecon/
+WORKDIR /usr/local/helloeclipsecon
 
-COPY src /usr/local/src
-WORKDIR /usr/local/src
-
-CMD mvn 
+CMD mvn install
 ```
 
 ```bash
@@ -208,8 +208,8 @@ docker build -t mvn-dock .
 ```
 
 ```bash
-docker run mvn-dock clean install
-docker run mvn-dock test
+docker run mvn-dock
+docker run mvn-dock mvn clean
 ```
 ]
 
