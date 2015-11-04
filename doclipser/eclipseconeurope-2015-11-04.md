@@ -128,9 +128,7 @@ docker run mariolet/hello-world
 .right-column[
 
 ### Images can be downloaded from the DockerHub .red[*]
-<br><br>
-
-TODO
+.center[![dockerhub](images/dockerhub.png)]
 
 ### Images are made of layers
 .center[![docker-tomcatimage](images/docker-tomcat-image.png)]
@@ -166,7 +164,8 @@ docker build -t hello-eclipsecon ./project-dir
 ```
 
 ### Resulting image is built on top of the base image
-TODO
+.center[![custom image](images/docker-custom-image.png)]
+
 ]
 ---
 layout: false
@@ -239,9 +238,20 @@ background-image: url(images/doclipser-main-logo.png)
   ### Features
 ]
 .right-column[
-### Common IDEs Docker support features 
+### Common IDEs supported features 
 <br><br>
-![IDEs features](images/IDE-features.png)
+![IDEs features](images/ide-features.png)
+]   
+---
+.left-column[
+  ## doclipser [usage]
+  ### IDEs
+  ### Features
+]
+.right-column[
+### doclipser supported features 
+<br><br>
+![IDEs features](images/ide-features-doclipser.png)
 ]   
 ---
 .left-column[
@@ -252,13 +262,17 @@ background-image: url(images/doclipser-main-logo.png)
 ]
 .right-column[
 ### Prerequisites
-### Configuration
-![doclipser-conf](images/doclipser-conf.png)
+**Eclipse** (v4.4 or higher), 
+**Docker** (API v1.15 or higher),
+**Java 7** or higher
+
 ### Dockerfile editor
-![doclipser-edit](images/doclipser-edit.png)
-### Containers run
-![doclipser-run](images/doclipser-run.png)
-<br><br>
+![doclipser-edit](images/do-syntaxh.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![doclipser-edit](images/do-autocomplete.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![doclipser-edit](images/do-validation.png)
+
+### Docker commands
+![doclipser-run](images/do-commands.png)
 ]   
 ---
 .left-column[
@@ -292,10 +306,11 @@ background-image: url(images/doclipser-main-logo.png)
 
 + Easy grammar definition
 
-+ Syntax highlighting, autocomplete, 
++ Syntax highlighting, autocomplete, validation
 
 + Unit testing
 
+<br><br>
 ![xtext](images/xtext.png)
 ]
 ---
@@ -305,12 +320,12 @@ background-image: url(images/doclipser-main-logo.png)
   ### Containers run
 ]
 .right-column[
-### Run of Dockerfile containers
+### Run of Docker containers
 
 + Docker API developed by Spotify
 
 + Eclipse Jobs
-
+<br><br>
 ![docker api](images/docker-api.png)
 ]
 ---
@@ -321,17 +336,9 @@ background-image: url(images/doclipser-main-logo.png)
   ### Build automation
 ]
 .right-column[
-### How are the plugins automated build
-
-+ GitHub repo
-
-+ CircleCI
-
-+ Maven Tycho
-
-+ BinTray
-
-![plugin build](images/plugin-build.png)
+### Plugins automated build
+<br><br><br>
+![plugin build](images/doclipser-build.png)
 ]
 ---
 .left-column[
@@ -383,7 +390,14 @@ background-image: url(images/doclipser-main-logo.png)
 
 template: inverse
 
-## merci
+## Thank you
 [mario.loriedo@zenika.com]
 
 [@mariolet]
+
+[https://github.com/domeide/doclipser]
+
+---
+class: center, middle, doclipser
+
+background-image: url(images/evaluate.png)
