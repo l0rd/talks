@@ -149,15 +149,6 @@ Build, Ship… and .red[Run]
 
 ![](images/tutum-screen.png)
 ---
-
-class: center
-<br><br>
-![](images/nautilus1.png)
-
-.left[
-.footnote[http://www.slideshare.net/Docker/official-repos-and-project-nautilus]
-]
----
 template: inverse
 
 ## Docker Universal Control Plane
@@ -208,6 +199,14 @@ Docker image scanning :
 
 ![](images/nautilus2.png)
 
+---
+class: center
+<br><br>
+![](images/nautilus1.png)
+
+.left[
+.footnote[http://www.slideshare.net/Docker/official-repos-and-project-nautilus]
+]
 ---
 template: inverse
 
