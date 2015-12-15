@@ -20,7 +20,7 @@ pyserv() {
     fi
 }
 
-PORT=8000
+PORT=8001
 pyserv $PORT .
 open http://localhost:$PORT/
 

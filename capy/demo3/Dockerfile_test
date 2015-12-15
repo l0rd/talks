@@ -1,12 +1,12 @@
 # This is a test block
 @AFTER RUN_USERADD
-ASSERT_TRUE USER_EXISTS 'tomcat'
+ASSERT_TRUE USER_EXISTS 'tommcat'
 ASSERT_TRUE FILE_EXISTS '/home/tomcat/.profile'
 
 # Another test block
 @BEFORE COPY_HELLO
-ASSERT_FALSE FILE_EXISTS '/usr/local/tomcat/webapps/hellorouen.war'
+ASSERT_FALSE FILE_EXISTS '/usr/local/tomcat/webapps/hello-nantes.war'
 
 # Last test block
 @AFTER COPY_HELLO
-ASSERT_TRUE FILE_EXISTS '/usr/local/tomcat/webapps/hellorouen.war'
+ASSERT_TRUE FILE_EXISTS '/usr/local/tomcat/webapps/hello-nantes.war'
