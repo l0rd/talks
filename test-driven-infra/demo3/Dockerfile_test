@@ -1,0 +1,44 @@
+# 1. Install tomcat
+@AFTER FROM
+ASSERT_TRUE FILE_EXISTS /usr/local/tomcat/bin/catalina.sh
+
+# 2. Create user tomcat
+@AFTER RUN_USERADD
+ASSERT_TRUE USER_EXISTS 'tomcat'
+
+# 3. Deploy war file
+@AFTER COPY
+ASSERT_TRUE FILE_EXISTS /usr/local/tomcat/webapps/hello-technozaure.war
+
+# 4. Start tomcat
+@AFTER_RUN
+ASSERT_TRUE PROCESS_EXISTS 'tomcat'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# @AFTER RUN_USERADD
+# ASSERT_TRUE USER_EXISTS 'tomcat'
+#ASSERT_TRUE FILE_EXISTS '/home/tomcat/.profile'
+
+# 2. Deploy war file
+#@BEFORE COPY_HELLO
+#ASSERT_FALSE FILE_EXISTS '/usr/local/tomcat/webapps/hello-technozaure.war'
+
+# Last test block
+#@AFTER COPY_HELLO
+#ASSERT_TRUE FILE_EXISTS '/usr/local/tomcat/webapps/hello-technozaure.war'
+
+# 2. Start tomcat
+#@AFTER_RUN
+#ASSERT_TRUE PROCESS_EXISTS 'tomcat'

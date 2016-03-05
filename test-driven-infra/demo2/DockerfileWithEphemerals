@@ -1,0 +1,11 @@
+FROM tomcat:8.0.28-jre8
+
+RUN useradd -d /home/tomcat -m -s /bin/bash tomcat
+EPHEMERAL getent passwd tomcat
+EPHEMERAL bash -c "test -f /home/tomcat/.profile"
+
+EPHEMERAL bash -c "test ! -f /usr/local/tomcat/webapps/hellorouen.war"
+COPY hellorouen.war /usr/local/tomcat/webapps/
+EPHEMERAL bash -c "test -f /usr/local/tomcat/webapps/hellorouen.war"
+
+CMD catalina.sh run
