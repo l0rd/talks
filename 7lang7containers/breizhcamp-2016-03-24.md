@@ -20,7 +20,7 @@ layout: false
 
 1. Des conteneurs pour mieux développer
 
-2. Exercices
+2. 5 conteneurs pour 5 langages
   - Swift
   - Rust
   - Haskell
@@ -114,36 +114,17 @@ Avoir des environnement cohérents
 ---
 
 .left-column[
-  ## Le contexte
-  ### Zenika
-  ### Fun
-  ### Coding Dojo
+  ## Mieux développer
+  ### Temps
+  ### Cohérence
+  ### Docker Language Stacks
+  ### Un exemple
 ]
 .right-column[
-<br><br><br>
-![France Zenika](images/dojo.jpg)
-]
-
----
-
-.left-column[
-  ## Le contexte
-  ### Zenika
-  ### Fun
-  ### Coding Dojo
-]
-.right-column[
-### Ping pong pair programming
-
-### Un dojo par mois
-
-### Des sujets différents
-- Bowling
-- Démineur
-- Project Euler
-- Gilded Rose
-
-### Partager partager partager !
+<br>
+Build et run de 27 Hello World en 27 langages en quelques secondes
+<br>
+![Lang Stacks](images/dexec.gif)
 
 ]
 
@@ -151,387 +132,208 @@ Avoir des environnement cohérents
 
 template: inverse
 
-## La recherche des outils
+## 5 conteneurs pour 5 langages
 
 ---
 
 .left-column[
-  ## La recherche des outils
-  ### Les critères
+  ## 1. Swift
 ]
 .right-column[
-
-## Le besoin
-- IDE avancé java
-
-- Possibilité de éditer à plusieurs en même temps
-
-- Version gratuite
-
-## Nice to have
-- Chacun utilise son IDE préféré
-
-- Open Source
-
-- Deux (voir plus) curseurs
-
-]
-
----
-
-.left-column[
-  ## La recherche des outils
-  ### Les critères
-  ### Les candidats
-]
-.right-column[
-### La liste des outils qui ont été pris en compte .red[*]
-.large[
-- Screenhero
-- Floobits
-- Codepad - Etherpad
-- SourceLair
-- Cloud9
-- Koding
-- Codenvy
-- Saros
-]
-
-.footnote[.red[*] merci [@ludnadez](https://twitter.com/ludnadez)]
-]
-
----
-
-.left-column[
-  ## La recherche des outils
-  ### Les critères
-  ### Les candidats
-  ### Les finalistes
-]
-.right-column[
-### La liste des outils qui ont été pris en compte .red[*]
-.large[
-- ~~Screenhero~~
-- Floobits
-- ~~Codepad - Etherpad~~
-- ~~SourceLair~~
-- ~~Cloud9~~
-- ~~Koding~~
-- ~~Codenvy~~
-- Saros
-]
-
-.footnote[.red[*] merci [@ludnadez](https://twitter.com/ludnadez)]
-]
-
----
-
-template: inverse
-
-## Un premier outil: Floobits
-
----
-
-background-repeat: cover
-background-image: url(images/floobits.png)
-
----
-
-.left-column[
-  ## Floobits
-  ### .red[Charactéristiques]
-]
-.right-column[
-# ![floobits-logo](images/floobits-logo.png)
 <br><br>
-### Plusieurs IDE supportés ![emacs](images/emacs.png) ![neovim](images/neovim.png) ![intellij](images/intellij.png) ![sublimetext](images/sublimetext.png) ![atom](images/atom.png)
-
-### Code synchronisé instantanément et chacun son curseurs
-
-### Architecture centralisée
-
-### Deux versions:
-  * Backend hebergé sur floobits.com
-  * [Floobits Enteprise](https://floobits.com/enterprise) : backend *on-premise*
+![Swift](images/swift.png)
 ]
 
 ---
 
 .left-column[
-  ## Floobits
-  ### Charactéristiques
-  ### .red[Avantages]
+  ## 1. Swift
+  ### Le langage
 ]
 .right-column[
-# ![floobits-logo](images/floobits-logo.png)
+![Swift](images/swift-logo-small.png)
 <br><br>
+- Développé par Apple
 
-### Collaboration inter-IDE
-Chacun utilise son IDE préféré (eg. VIM et Emacs ensemble)
+- La première version a été pubbliée en 2014
 
-### Setup facile
-* Install : plugin pour IDE
-* Pargage de workspace : avec une URL
+- Open Source depuis novembre 2015 pour iOS, OS X, Linux et FreeBSD
 
-### Bonne documentation
+- Influencé par Objective-C, Rust, Haskell, Ruby, Python, C#
+
+- Multi-paradigme : OO et functionnel
+
+- Typage statique, fort et inféré
+
+- Langage plus aimé dans le classement StackOverflow 2015
 ]
 
 ---
 
 .left-column[
-  ## Floobits
-  ### Charactéristiques
-  ### Avantages
-  ### .red[Inconvéniants]
+  ## 1. Swift
+  ### Le langage
+  ### Le conteneur
 ]
 .right-column[
-# ![floobits-logo](images/floobits-logo.png)
+![Docker](images/docker.png)
 <br><br>
+- Image: `swiftdocker/swift`
 
-### Supporte uniquement IntelliJ comme IDE Java
+- Pattern: *Sources in the volume*
 
-### Protocole propriétaire
+- Build/run commands
 
-### (Rares) problèmes de synchronisation
-
+```bash
+docker run --rm \
+    -v $(pwd):/src/ \
+    <image> \
+    <command>
+```
 ]
 
 ---
 
 .left-column[
-  ## Floobits
-  ### Charactéristiques
-  ### Avantages
-  ### Inconvéniants
-  ### .red[Démo]
+  ## 1. Swift
+  ### Le langage
+  ### Le conteneur
+  ### Cheat Sheet
 ]
 .right-column[
-# ![floobits-logo](images/floobits-logo.png)
-<br><br>
+```swift
+// Hello World
+print("Hello World")
 
-.right[![commitstrip-demo](images/demo-commitstrip.jpg)]
-.right[[http://www.commitstrip.com/en/](http://www.commitstrip.com/en/)]
-]
 
----
+// Build et Execution d'une application
+swift hello.swift
 
-template: inverse
+// Avec Docker
+docker run --rm \
+    -v $(pwd):/src/ \
+    swiftdocker/swift \
+    swift /src/hello.swift
 
-## Un deuxième outil: Saros
+// Declaration d'une fonction
+func factorial(n: Int) -> Int {
+	do something....
+	return i
+}
 
----
 
-background-repeat: cover
-background-image: url(images/saros.png)
+// Condition if
+if val == 0 {
+  // Some code here
+} else if val == 1 {
+  // Some code here
+}
 
----
 
-.left-column[
-  ## Saros
-  ### .red[Charactéristiques]
-]
-.right-column[
-# ![saros-logo](images/saros-logo.png)
-<br><br>
-
-### Plugin eclipse
-
-### Code synchronisé instantanément et chacun son curseurs
-
-### Architecture distribué
-- Un développeur joue le rôle de host
-- Utilse le protocole XMPP pour la comunication
-
-### Projet Open Source maintenu par l'université de Berlin
-
+// Boocle for in
+for num in 1...100 {//iterate from 1 to 100}
+```
 ]
 
 ---
 
 .left-column[
-  ## Saros
-  ### Charactéristiques
-  ### .red[Avantages]
+  ## 2. Rust
 ]
 .right-column[
-# ![saros-logo](images/saros-logo.png)
-<br><br>
-
-### Standards ouverts
-- Protocolle de comunication ouvert (XMPP)
-- Projet Open Source
-- Support d'un IDE Open Source (eclipse)
-
-### Décentralisé
-Le code ne passe jamais à travers des intermédiaires
-
-### Setup facile
-Install : Il suffit d'installer un plugin eclipse
-
+<br><br><br><br>
+![Rust](images/rust.jpg)
 ]
 
 ---
 
 .left-column[
-  ## Saros
-  ### Charactéristiques
-  ### Avantages
-  ### .red[Inconvéniants]
+  ## 2. Rust
+  ### Le langage
 ]
 .right-column[
-# ![saros-logo](images/saros-logo.png)
+![Swift](images/swift-logo-small.png)
 <br><br>
+- Développé par Apple
 
-### Supporte un seul IDE (Eclipse)
+- La première version a été pubbliée en 2014
 
-### Certaines versions de Eclipse peuvent présenter des problèmes (STS)
+- Open Source depuis novembre 2015 pour iOS, OS X, Linux et FreeBSD
 
-### Setup d'un serveur XMPP pour une installation complètement indépendante
+- Influencé par Objective-C, Rust, Haskell, Ruby, Python, C#
 
+- Multi-paradigme : OO et functionnel
+
+- Typage statique, fort et inféré
+
+- Langage plus aimé dans le classement StackOverflow 2015
 ]
 
 ---
 
 .left-column[
-  ## Saros
-  ### Charactéristiques
-  ### Avantages
-  ### Inconvéniants
-  ### .red[Démo]
+  ## 2. Rust
+  ### Le langage
+  ### Le conteneur
 ]
 .right-column[
-# ![saros-logo](images/saros-logo.png)
+![Docker](images/docker.png)
 <br><br>
-<br><br>
-.right[![demo dilibert](images/demo.jpg)]
-]
+- Image: `swiftdocker/swift`
 
----
+- Pattern: *Sources in the volume*
 
-template: inverse
+- Build/run commands
 
-## Un troisième outil: tmate
-
----
-
-background-repeat: cover
-background-image: url(images/tmate.png)
-
----
-
-.left-column[
-  ## tmate
-  ### .red[Charactéristiques]
-]
-.right-column[
-# ![tmate-logo](images/tmate-logo.png)
-<br><br>
-
-### Fork de tmux (terminal multiplexer)
-
-### Outil pour le partage de terminal
-- Un seul curseur
-- Environnement non-graphique
-
-### Architecture centralisée
-
+```bash
+docker run --rm \
+    -v $(pwd):/src/ \
+    <image> \
+    <command>
+```
 ]
 
 ---
 
 .left-column[
-  ## tmate
-  ### .red[Charactéristiques]
+  ## 2. Rust
+  ### Le langage
+  ### Le conteneur
+  ### Cheat Sheet
 ]
 .right-column[
-# ![tmate-logo](images/tmate-logo.png)
-<div style="background:black">
-<img src="images/tmate-arch.png" />
-</div>
-]
+```swift
+// Hello World
+print("Hello World")
 
----
 
-.left-column[
-  ## tmate
-  ### Charactéristiques
-  ### .red[Avantages]
-]
-.right-column[
-# ![tmate-logo](images/tmate-logo.png)
-<br><br>
-### Standard ouverts
-Projet Open Source et se base sur tmux
+// Build et Execution d'une application
+swift hello.swift
 
-### Setup facile
-Tmate sur pour les host
-Un client SSH pour les autres
+// Avec Docker
+docker run --rm \
+    -v $(pwd):/src/ \
+    swiftdocker/swift \
+    swift /src/hello.swift
 
-### Rapide
+// Declaration d'une fonction
+func factorial(n: Int) -> Int {
+	do something....
+	return i
+}
 
-]
 
----
+// Condition if
+if val == 0 {
+  // Some code here
+} else if val == 1 {
+  // Some code here
+}
 
-.left-column[
-  ## tmate
-  ### Charactéristiques
-  ### Avantages
-  ### .red[Inconvéniants]
-]
-.right-column[
-# ![tmate-logo](images/tmate-logo.png)
-<br><br>
-### Pas adapté pour outils graphiques (Eclipse etc...)
 
-### Un seul curseur
-
-### Sécurité : accès au shell distant
-
-]
-
----
-
-.left-column[
-  ## tmate
-  ### Charactéristiques
-  ### Avantages
-  ### Inconvéniants
-  ### .red[Démo]
-]
-.right-column[
-# ![tmate-logo](images/tmate-logo.png)
-<br><br>
-.right[![commitstrip-demo](images/demo-commitstrip.jpg)]
-.right[[http://www.commitstrip.com/en/](http://www.commitstrip.com/en/)]
-]
-
----
-template: inverse
-
-## La partie audio
----
-
-# La partie audio
-
-## Plusieurs options :
-### 1. Sans audio
-### 2. Skype, Google Hangouts
-### 3. Téléphone portable
-### 4. Gaming VoIP (Teamspeak, mumble etc...)
-
----
-template: inverse
-
-## Le kit du remote pair programmer
-<br><br>
-
-.left[
-### 1. Laptop
-### 2. Casque avec micro
-### 3. Téléphone portable
-### 4. Agenda partagée en avance
-### 5. Setup des outils en avance
+// Boocle for in
+for num in 1...100 {//iterate from 1 to 100}
+```
 ]
 
 ---
