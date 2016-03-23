@@ -137,6 +137,18 @@ template: inverse
 
 ---
 
+.left-column[
+  ## FizzBuzz
+  ###
+]
+.right-column[
+<br><br>
+![Swift](images/swift.png)
+]
+
+
+---
+
 template: inverse
 
 ## 5 conteneurs pour 5 langages
@@ -799,5 +811,7 @@ for num in 1...100 {//iterate from 1 to 100}
 template: inverse
 
 ## merci
-[http://l0rd.github.io/talks/7containers7languages]
+
+http://l0rd.github.io/talks/containers-and-languages
+
 [@mariolet]
