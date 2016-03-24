@@ -215,9 +215,11 @@ template: inverse
 
 - Multi-paradigme : OO et functionnel
 
-- Typage statique, fort et inféré
+- Statique, fortement typé avec inférence de type
 
-- Langage plus aimé dans le classement StackOverflow 2015
+- Utilise le mechanisme de Automatic Reference Counting comme systeme de GC
+
+- n.1 dansle classement StackOverflow 2015
 ]
 
 ---
@@ -293,24 +295,23 @@ for num in 1...100 {//iterate from 1 to 100
 ]
 .right-column[
 ![Rust-logo](images/rust-logo-small.png)
-<br><br>
-- Développé par Mozilla
+<br>
+- Développé par Mozilla Research depuis 2009
 
-- La première version a été pubbliée en
+- Open Source : la plus part des contributions viennent de la communauté
 
-- Open Source ?
+- Influencé par C, C++, Haskell
 
-- Influencé par
+- Multi-paradigme : impératif, fonctionnel, OO
 
-- Paradigme :
+- Statique, fortement typé avec inférence de type
 
-- Typage
+- Performant comme du C++ (pas de garbage collector)
 
-- Le `;` est utilisé pour différentier expressions et instructions :
-```rust
-x + 1  // an expression: returns a value
-x + 1; // a statement: doesn't return a value
-```
+- Critiqué pour son instabilité
+
+- n.1 dansle classement StackOverflow 2016
+
 ]
 
 ---
@@ -325,7 +326,7 @@ x + 1; // a statement: doesn't return a value
 ![Docker](images/docker.png)
 ![Rust-logo](images/rust-logo-small.png)
 <br><br>
-- Pattern: **Le build docker fait un build de l'applicaiton** / **variante on-build**
+- Pattern: **Le build docker fait un build de l'applicaiton** (variante on-build)
 
 - Image: `mariolet/rust`
 ```Dockerfile
@@ -402,22 +403,17 @@ println!("{}", i);
 .right-column[
 ![Haskell-logo](images/haskell-logo-small.png)
 <br><br>
-- La première version a été pubbliée en
+- La première version a été pubbliée en 1990
 
-- Influencé par
+- Influencé par Miranda (langage purement fonctionnel mais propriétaire)
 
-- Paradigme :
+- C'est un standard ouvert (Haskell 2010) et l'implémentation principale est le Glasgow Haskell Compiler (GHC)
 
-- Typage
+- Paradigme purement fonctionnel (données immuables)
+
+- Statique, fortement typé avec inférence de type
 
 - L'indentation est significative (**layout** vs `;`+`{}`)
-```haskell
-if x == 4
-              then putStrLn "You're right!"
-              else putStrLn "You're wrong!"
-```
-- Pas besoin de parenthèses pour invoquer une fonction
-`factorial 5`
 
 - Les fonctions peuvent être déclarée de façon récursive
 ```haskell
@@ -517,9 +513,7 @@ mod n 3
 .right-column[
 ![golang-logo](images/golang-logo-small.png)
 <br><br>
-- Développé par Google
-
-- La première version a été pubbliée en 2009
+- Développé par Google depuis 2006
 
 - Open Source et disponible pour Linux, OS X, Windows, Solaris, \*BSD
 
@@ -527,9 +521,16 @@ mod n 3
 
 - Paradigme : impératif
 
-- Typage : fort, statique, inféré
+- Statique, fortement typé avec inférence de type
 
--
+- Langage conçu pour des gros systèmes (comme Java et C++), très performant (comme du C) et avec des temps de compilation très rapide (comme des langage de scripting)
+
+- simple, concis et sécurisé
+
+- Absence du concept de generics et de classes (mais supporte l'héritage avec les interfaces)
+
+- Le GC rend Go moins performant par rapport à d'autres langages sans GC
+
 ]
 
 ---
@@ -712,25 +713,25 @@ for (int i = 1; i <= 100; i++) {
   ## 1. Swift
   ## 2. Rust
   ...
-  ## 6. ArnoldC
+## 6. ArnoldC
   ### Le langage
 ]
 .right-column[
 ![ArnoldC-logo](images/arnoldc-logo-small.jpeg)
 <br><br>
-- Développé par
+- [http://lhartikk.github.io/ArnoldC/](http://lhartikk.github.io/ArnoldC/)
 
-- La première version a été pubbliée en
-
-- Open Source ?
-
-- Influencé par
+- Influencé par LOLCODE et des films de Arnold Schwarzenegger
 
 - Paradigme : impératif
 
-- Typage
+- Typage : un seul type est supporté (16 bit signed integer)
 
-- Autres curiositées
+- Le main() de ArnoldC
+  ```
+  IT'S SHOWTIME
+  YOU HAVE BEEN TERMINATED
+  ```
 ]
 
 ---
@@ -776,8 +777,10 @@ IT'S SHOWTIME
 TALK TO THE HAND "Hello, World"
 YOU HAVE BEEN TERMINATED
 
+
 // Build et Execution d'une application
 java -jar /arnoldc/ArnoldC.jar -run hello.arnoldc
+
 
 // Condition if
 BECAUSE I'M GOING TO SAY PLEASE value
@@ -792,20 +795,11 @@ STICK AROUND value
 [statements]
 CHILL
 
-// Déclaration d'une variable
-STICK AROUND myvar
-[statements]
-CHILL
-
-// Assignation d'une variable
-GET TO THE CHOPPER myvar
-HERE IS MY INVITATION firstOperand
-[operations]
-ENOUGH TALK
-
 // operations
 GET UP operand // firstOperand + operand
 YOU'RE FIRED operand // firstOperand * operand
+
+...
 ```
 ]
 
