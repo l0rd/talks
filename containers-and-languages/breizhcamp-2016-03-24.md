@@ -33,10 +33,11 @@ layout: false
 ---
 layout: false
 .left-column[
+.footnote[@mariolet ]
+
   ## Agenda
 ]
 .right-column[
-.footnote[https://goo.gl/T6ZIEl | @mariolet | #bzhcmp | @breizhcamp]
 <br>
 1. Des conteneurs pour (mieux) développer
 
@@ -60,26 +61,36 @@ template: inverse
 ---
 
 .left-column[
-  ## Mieux développer
+.footnote[@mariolet ]
+
+
+  ## Conteneurs pour les développeurs
 ]
 .right-column[
 <br><br>
-Il nous arrive parfois d'être frustrés
+Nous aimons notre métier...
 <br><br>
-![France Zenika](images/frustration.gif)
+
 ]
 
+--
+.right-column[
+...mais il y a des fois où il y a juste rien qui marche
+<br><br><br><br>
+![Frustration](images/frustration.gif)
+]
 ---
 
 .left-column[
-  ## Mieux développer
-  ### Temps
+.footnote[@mariolet ]
+
+
+  ## Conteneurs pour les développeurs
+  ### Frustrations
 ]
 .right-column[
-<br><br>
-**Besoin n.1**
-
-Réduire le temps de mise en place d'un environnement de développement
+<br>
+Ces fois où la mise en place de l'environnement devait prendre 5 minutes...
 
 ![Time Compression](images/clock.jpg)
 
@@ -88,15 +99,15 @@ Réduire le temps de mise en place d'un environnement de développement
 ---
 
 .left-column[
-  ## Mieux développer
-  ### Temps
-  ### Cohérence
+.footnote[@mariolet ]
+
+
+  ## Conteneurs pour les développeurs
+  ### Frustrations
 ]
 .right-column[
-<br><br>
-**Besoin n.2**
-
-Avoir des environnement cohérents
+<br>
+Ces fois où tout marche nickel sur machine de notre collègue...
 
 ![Works on my machine](images/say-works-on-my-machine.jpg)
 
@@ -105,31 +116,45 @@ Avoir des environnement cohérents
 ---
 
 .left-column[
-  ## Mieux développer
-  ### Temps
-  ### Cohérence
-  ### Docker Language Stacks
+.footnote[@mariolet ]
+
+
+## Conteneurs pour les développeurs
+### Frustrations
+### Docker
 ]
 .right-column[
-
-![Lang Stacks](images/languagestacks2.png)
-
+<br>
+Docker nous permet de définir des environnements :
+- Isolés
+- Faciles à reproduire
+<br><br>
+![Lang Stacks](images/languagestacks.png)
+<br>
+(comme des VM quoi)
 ]
 
 ---
 
 .left-column[
-  ## Mieux développer
-  ### Temps
-  ### Cohérence
-  ### Docker Language Stacks
-  ### Un exemple
+.footnote[@mariolet ]
+
+
+## Conteneurs pour les développeurs
+### Frustrations
+### Docker
 ]
 .right-column[
 <br>
-Build et run de 27 Hello World en 27 langages en quelques secondes
-<br>
+Oui comme des VMs.
+
+Mais beaucoup moins gourmands en resources :
+- Plus rapides
+- Moins encombrant
+
+
 ![Lang Stacks](images/dexec.gif)
+(création de 27 containers)
 
 ]
 
@@ -142,6 +167,8 @@ template: inverse
 ---
 
 .left-column[
+.footnote[ @mariolet ]
+
   ## FizzBuzz
   ### Le jeu
 ]
@@ -153,6 +180,8 @@ template: inverse
 ---
 
 .left-column[
+.footnote[ @mariolet ]
+
   ## FizzBuzz
   ### Le jeu
   ### Le code
@@ -192,6 +221,22 @@ public class FizzBuzz{
 
 ---
 
+.left-column[
+.footnote[ @mariolet ]
+
+  ## FizzBuzz
+  ### Le jeu
+  ### Le code
+  ### Les VMs
+]
+.right-column[
+<br><br>
+# https://goo.gl/T6ZIEl
+]
+
+
+---
+
 template: inverse
 
 ## 5 conteneurs pour 5 langages
@@ -199,6 +244,8 @@ template: inverse
 ---
 
 .left-column[
+.footnote[https://goo.gl/T6ZIEl | @mariolet ]
+
   ## 1. Swift
   ### Le langage
 ]
@@ -225,6 +272,8 @@ template: inverse
 ---
 
 .left-column[
+.footnote[https://goo.gl/T6ZIEl | @mariolet ]
+
   ## 1. Swift
   ### Le langage
   ### Le conteneur
@@ -249,6 +298,8 @@ docker run --rm \
 ---
 
 .left-column[
+.footnote[https://goo.gl/T6ZIEl | @mariolet ]
+
   ## 1. Swift
   ### Le langage
   ### Le conteneur
@@ -289,6 +340,8 @@ for num in 1...100 {//iterate from 1 to 100
 ---
 
 .left-column[
+.footnote[https://goo.gl/T6ZIEl | @mariolet ]
+
   ## 1. Swift
 ## 2. Rust
   ### Le langage
@@ -317,6 +370,8 @@ for num in 1...100 {//iterate from 1 to 100
 ---
 
 .left-column[
+.footnote[https://goo.gl/T6ZIEl | @mariolet ]
+
   ## 1. Swift
   ## 2. Rust
   ### Le langage
@@ -347,6 +402,8 @@ docker run hellorust
 ---
 
 .left-column[
+.footnote[@mariolet ]
+
   ## 1. Swift
   ## 2. Rust
   ### Le langage
@@ -395,6 +452,8 @@ println!("{}", i);
 ---
 
 .left-column[
+.footnote[ @mariolet ]
+
   ## 1. Swift
   ## 2. Rust
 ## 3. Haskell
@@ -425,6 +484,8 @@ factorial n = n * factorial (n-1)
 ---
 
 .left-column[
+.footnote[https://goo.gl/T6ZIEl | @mariolet ]
+
   ## 1. Swift
   ## 2. Rust
   ## 3. Haskell
@@ -455,6 +516,8 @@ factorial n = n * factorial (n-1)
 ---
 
 .left-column[
+.footnote[ @mariolet ]
+
   ## 1. Swift
   ## 2. Rust
   ## 3. Haskell
@@ -504,6 +567,8 @@ mod n 3
 ---
 
 .left-column[
+.footnote[@mariolet ]
+
   ## 1. Swift
   ## 2. Rust
   ## 3. Haskell
@@ -512,30 +577,29 @@ mod n 3
 ]
 .right-column[
 ![golang-logo](images/golang-logo-small.png)
-<br><br>
 - Développé par Google depuis 2006
 
 - Open Source et disponible pour Linux, OS X, Windows, Solaris, \*BSD
 
-- Influencé par C, Modula, Newsqueak, Smalltalk, Python
+- Influencé par C, Newsqueak, Modula, Smalltalk, Python
 
 - Paradigme : impératif
 
 - Statique, fortement typé avec inférence de type
 
-- Langage conçu pour des gros systèmes (comme Java et C++), très performant (comme du C) et avec des temps de compilation très rapide (comme des langage de scripting)
-
-- simple, concis et sécurisé
+- Langage conçu pour :
+  - Des gros projets comme Java ou C++
+  - Avoir les performances du C
+  - Avoir des temps de build/run très rapide (comparables aux langage de scripting)
 
 - Absence du concept de generics et de classes (mais supporte l'héritage avec les interfaces)
-
-- Le GC rend Go moins performant par rapport à d'autres langages sans GC
-
 ]
 
 ---
 
 .left-column[
+.footnote[https://goo.gl/T6ZIEl | @mariolet ]
+
   ## 1. Swift
   ## 2. Rust
   ## 3. Haskell
@@ -566,6 +630,8 @@ mod n 3
 ---
 
 .left-column[
+.footnote[https://goo.gl/T6ZIEl | @mariolet ]
+
   ## 1. Swift
   ## 2. Rust
   ## 3. Haskell
@@ -609,6 +675,8 @@ for i := 1; i < 101; i++  {
 ---
 
 .left-column[
+.footnote[ @mariolet ]
+
   ## 1. Swift
   ## 2. Rust
   ...
@@ -636,6 +704,8 @@ for i := 1; i < 101; i++  {
 ---
 
 .left-column[
+.footnote[https://goo.gl/T6ZIEl | @mariolet ]
+
   ## 1. Swift
   ## 2. Rust
   ...
@@ -654,9 +724,9 @@ for i := 1; i < 101; i++  {
 - Build/run commands
   ```bash
   # 'Installation' de la JShell
-  alias jshell=docker run -ti --rm \
+  alias jshell="docker run -ti --rm \
                         java:9-jdk \
-                        jshell
+                        jshell"
 
   # Execution de la JShell
   jshell
@@ -666,6 +736,8 @@ for i := 1; i < 101; i++  {
 ---
 
 .left-column[
+.footnote[https://goo.gl/T6ZIEl | @mariolet ]
+
   ## 1. Swift
   ## 2. Rust
   ...
@@ -710,6 +782,8 @@ for (int i = 1; i <= 100; i++) {
 ---
 
 .left-column[
+.footnote[https://goo.gl/T6ZIEl | @mariolet ]
+
   ## 1. Swift
   ## 2. Rust
   ...
@@ -737,6 +811,8 @@ for (int i = 1; i <= 100; i++) {
 ---
 
 .left-column[
+.footnote[https://goo.gl/T6ZIEl | @mariolet ]
+
   ## 1. Swift
   ## 2. Rust
   ...
@@ -765,6 +841,8 @@ for (int i = 1; i <= 100; i++) {
 ---
 
 .left-column[
+.footnote[https://goo.gl/T6ZIEl | @mariolet ]
+
   ## 6. ArnoldC
   ### Le langage
   ### Le conteneur
