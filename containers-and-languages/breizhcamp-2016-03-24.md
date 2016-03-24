@@ -3,13 +3,15 @@ layout: true
 class: center, middle, inverse
 ---
 layout: false
-class: center
+template: inverse
+class: center, middle, doclipser
+
+background-image: url(images/fizzbuzzterminals.png)
+
 <br><br><br><br><br><br>
 # 5 conteneurs pour 5 langages
 <br><br><br>
 
-
-<!-- #.left[![softshake](images/softshake.png)] -->
 
 ---
 template: inverse
@@ -17,6 +19,7 @@ template: inverse
 ## Hello
 
 ---
+layout: false
 
 .large[
 .left[Mario........................................![mario](images/mario_pixels.png)]
@@ -33,6 +36,7 @@ layout: false
   ## Agenda
 ]
 .right-column[
+.footnote[https://goo.gl/T6ZIEl | @mariolet | #bzhcmp | @breizhcamp]
 <br>
 1. Des conteneurs pour (mieux) développer
 
@@ -139,29 +143,58 @@ template: inverse
 
 .left-column[
   ## FizzBuzz
-  ###
+  ### Le jeu
 ]
 .right-column[
 <br><br>
-![Swift](images/swift.png)
+![Swift](images/fizzbuzz.png)
 ]
 
+---
+
+.left-column[
+  ## FizzBuzz
+  ### Le jeu
+  ### Le code
+]
+.right-column[
+```java
+
+public class FizzBuzz{
+
+  public static void main(String[] args) {
+
+    for(int i= 1; i <= 100; i++) {
+
+      if (i % 15 == 0) {
+
+        System.out.println("FizzBuzz");
+
+      } else if (i % 3 == 0) {
+
+        System.out.println("Fizz");
+
+      } else if (i % 5 == 0) {
+
+        System.out.println("Buzz");
+
+      } else {
+
+        System.out.println(i);
+
+      }
+
+    }
+  }
+}
+```
+]
 
 ---
 
 template: inverse
 
 ## 5 conteneurs pour 5 langages
-
----
-
-.left-column[
-  ## 1. Swift
-]
-.right-column[
-<br><br>
-![Swift](images/swift.png)
-]
 
 ---
 
@@ -196,18 +229,18 @@ template: inverse
 ]
 .right-column[
 ![Docker](images/docker.png)
+![Swift](images/swift-logo-small.png)
 <br><br>
-- Image: `swiftdocker/swift`
-
 - Pattern: **Les sources sont partagées dans un volume**
 
-- Build/run commands
+- Image: `swiftdocker/swift`
 
+- Build/run commands
 ```bash
 docker run --rm \
     -v $(pwd):/src/ \
-    <image> \
-    <command>
+    swiftdocker/swift \
+    swift /src/hello.swift
 ```
 ]
 
@@ -228,15 +261,10 @@ print("Hello World")
 // Build et Execution d'une application
 swift hello.swift
 
-// Avec Docker
-docker run --rm \
-    -v $(pwd):/src/ \
-    swiftdocker/swift \
-    swift /src/hello.swift
 
 // Declaration d'une fonction
 func factorial(n: Int) -> Int {
-	do something....
+	// do something....
 	return i
 }
 
@@ -250,30 +278,23 @@ if val == 0 {
 
 
 // Boocle for in
-for num in 1...100 {//iterate from 1 to 100}
+for num in 1...100 {//iterate from 1 to 100
+  // do something....
+}
 ```
 ]
 
 ---
 
 .left-column[
+  ## 1. Swift
 ## 2. Rust
-]
-.right-column[
-<br><br><br><br>
-![Rust](images/rust.jpg)
-]
-
----
-
-.left-column[
-  ## 2. Rust
   ### Le langage
 ]
 .right-column[
-![Swift](images/rust-logo-small.png)
+![Rust-logo](images/rust-logo-small.png)
 <br><br>
-- Développé par
+- Développé par Mozilla
 
 - La première version a été pubbliée en
 
@@ -286,35 +307,46 @@ for num in 1...100 {//iterate from 1 to 100}
 - Typage
 
 - Le `;` est utilisé pour différentier expressions et instructions :
-`x + 1 // this is an expression: it returns a value`
-`x + 1; // this is a statement: it does not return a value`
-]
-
----
-
-.left-column[
-  ## 2. Rust
-  ### Le langage
-  ### Le conteneur
-]
-.right-column[
-![Docker](images/docker.png)
-<br><br>
-- Image: `mariolet/rust`
-
-- Pattern: **Les sources sont inclus dans l'image** / **Le build docker build les sources** / **variant onbuild**
-
-- Build/run commands
-
-```bash
-docker build -t <image-name> <dockerfile-path>
-docker run <image-name>
+```rust
+x + 1  // an expression: returns a value
+x + 1; // a statement: doesn't return a value
 ```
 ]
 
 ---
 
 .left-column[
+  ## 1. Swift
+  ## 2. Rust
+  ### Le langage
+  ### Le conteneur
+]
+.right-column[
+![Docker](images/docker.png)
+![Rust-logo](images/rust-logo-small.png)
+<br><br>
+- Pattern: **Le build docker fait un build de l'applicaiton** / **variante on-build**
+
+- Image: `mariolet/rust`
+```Dockerfile
+...
+ONBUILD COPY / /src/
+ONBUILD WORKDIR /src/
+```
+
+- Build/run commands
+```bash
+# Build
+docker build -t hellorust .
+# Run
+docker run hellorust
+```
+]
+
+---
+
+.left-column[
+  ## 1. Swift
   ## 2. Rust
   ### Le langage
   ### Le conteneur
@@ -332,14 +364,10 @@ fn main() {
 rustc hello.rs
 ./hello
 
-// Avec Docker
-// docker build -t hellorust .
-// docker run hellorust
-
 
 // Declaration d'une fonction
 fn factorial(n: i32) -> i32 {
-	do something....
+	// do something....
 	i // do not use `;` to return a value
 }
 
@@ -351,35 +379,30 @@ if val == 0 {
   // Some code here
 }
 
+
 // Boucle for in
-for num in 1...101 {//iterate from 1 to 100}
+for num in 1..101 { //iterate from 1 to 100
+  // do something....
+}
+
+// Pour afficher un entier
+println!("{}", i);
+
 ```
 ]
 
 ---
 
 .left-column[
+  ## 1. Swift
+  ## 2. Rust
 ## 3. Haskell
-]
-.right-column[
-<br><br><br><br>
-![Rust](images/haskell.jpg)
-]
-
----
-
-.left-column[
-  ## 3. Haskell
   ### Le langage
 ]
 .right-column[
-![Swift](images/haskell-logo-small.png)
+![Haskell-logo](images/haskell-logo-small.png)
 <br><br>
-- Développé par
-
 - La première version a été pubbliée en
-
-- Open Source ?
 
 - Influencé par
 
@@ -406,31 +429,38 @@ factorial n = n * factorial (n-1)
 ---
 
 .left-column[
+  ## 1. Swift
+  ## 2. Rust
   ## 3. Haskell
   ### Le langage
   ### Le conteneur
 ]
 .right-column[
 ![Docker](images/docker.png)
+![Haskell-logo](images/haskell-logo-small.png)
 <br><br>
+- Pattern: **Run en background et exec all the things**
+
 - Image: `haskell` (image officielle)
 
-- Pattern: **exec all the things**
-
 - Build/run commands
+  ```bash
+  docker run --name haskell -d \
+              -v $(pwd):/src/ haskell \
+              tail -f /dev/null
+  #Build
+  docker exec haskell ghc -o hello /src/hello.hs
 
-```bash
-docker run -d --name <container-name> \
-           -v $(pwd):/src/ \
-           <image-name> tail -f /dev/null
-docker exec <container-name> <build-command>
-docker exec <container-name> <run-command>
-```
+  # Run
+  docker exec haskell ./hello
+  ```
 ]
 
 ---
 
 .left-column[
+  ## 1. Swift
+  ## 2. Rust
   ## 3. Haskell
   ### Le langage
   ### Le conteneur
@@ -444,12 +474,6 @@ main = putStrLn "Hello, World!"
 -- Build et Execution d'une application
 -- ghc -o hello hello.hs
 -- ./hello
-
--- Avec Docker
--- docker run --name haskell -d -v $(pwd):/src/ haskell \
---            tail -f /dev/null
--- docker exec haskell ghc -o hello /src/hello.hs
--- docker exec haskell ./hello
 
 -- Declaration d'une fonction
 factorial n =
@@ -470,6 +494,13 @@ printStringNTimes n =
   do
    -- Do Something
    printStringNTimes (n-1)
+
+-- Pour afficher un entier
+print i
+
+-- Pour calculer le modulo d'un entier
+mod n 3
+
 ```
 
 ]
@@ -477,67 +508,66 @@ printStringNTimes n =
 ---
 
 .left-column[
+  ## 1. Swift
+  ## 2. Rust
+  ## 3. Haskell
 ## 4. Go
-]
-.right-column[
-<br><br><br><br>
-![Rust](images/go.jpg)
-]
-
----
-
-.left-column[
-  ## 4. Go
   ### Le langage
 ]
 .right-column[
-![Swift](images/go-logo-small.png)
+![golang-logo](images/golang-logo-small.png)
 <br><br>
-- Développé par
+- Développé par Google
 
-- La première version a été pubbliée en
+- La première version a été pubbliée en 2009
 
-- Open Source ?
+- Open Source et disponible pour Linux, OS X, Windows, Solaris, \*BSD
 
-- Influencé par
+- Influencé par C, Modula, Newsqueak, Smalltalk, Python
 
-- Paradigme :
+- Paradigme : impératif
 
-- Typage
+- Typage : fort, statique, inféré
 
-- Autres curiositées
+-
 ]
 
 ---
 
 .left-column[
+  ## 1. Swift
+  ## 2. Rust
+  ## 3. Haskell
   ## 4. Go
   ### Le langage
   ### Le conteneur
 ]
 .right-column[
 ![Docker](images/docker.png)
+![golang-logo](images/golang-logo-small.png)
 <br><br>
+- Patterns: **Le conteneur comme Runtime Environment**, **Copie du livrable dans l'image**
+
 - Image: `scratch` (image officielle)
 
-- Pattern: **Le conteneur comme Runtime Environment**
-
 - Build/run commands
+  ```bash
+  # Build (cette fois-ci nous n'utiliserons Docker)
+  CGO_ENABLED=0 GOOS=linux go build \
+        -a -installsuffix cgo hello.go
 
-```bash
-# Cette fois-ci, pour builder, nous n'utiliserons pas un conteneur
-CGO_ENABLED=0 GOOS=linux go build \
-      -a -installsuffix cgo <source-file>
-# En revanche on utilisera bien un conteneur pour
-# éxécuter notre application
-docker build -t <image-name> .
-docker run <image-name>
-```
+  # Run
+  docker build -t hellogo .
+  docker run -d -p 9090:9090 hellogo
+  ```
 ]
 
 ---
 
 .left-column[
+  ## 1. Swift
+  ## 2. Rust
+  ## 3. Haskell
   ## 4. Go
   ### Le langage
   ### Le conteneur
@@ -554,12 +584,6 @@ func main() {
 
 // Build et Execution d'une application
 // go build hello.go && ./hello (mais aussi go run hello.go)
-
-// Avec Docker
-// CGO_ENABLED=0 GOOS=linux go build -a \
-//             -installsuffix cgo hello.go
-// docker build -t hellogo .
-// docker run -d hellogo -p 9090:9090
 
 // Declaration d'une fonction
 func factorial(n int) int {
@@ -584,21 +608,14 @@ for i := 1; i < 101; i++  {
 ---
 
 .left-column[
+  ## 1. Swift
+  ## 2. Rust
+  ...
 ## 5. JShell
-]
-.right-column[
-<br><br><br><br>
-![Rust](images/jshell.jpg)
-]
-
----
-
-.left-column[
-  ## 5. JShell
   ### Le langage
 ]
 .right-column[
-![Swift](images/jshell-logo-small.png)
+![jshell-logo](images/jshell-logo-small.png)
 <br><br>
 - Développé par Oracle (JEP 222)
 
@@ -606,11 +623,11 @@ for i := 1; i < 101; i++  {
 
 - Influencé par les REPL (read-eval-print-loop) d'autres langages comme Scala, Ruby, JavaScript, Haskell, Clojure et Python
 
-- C'est du Java donc OOP, statique, fortement typé
+- C'est du Java donc OOP, statique, fortément typé
 
 - Pas besoin de définir une classe et un main pour executer du code
 
-- Les *snippets* peuvent référencer des variables, méthodes ou classes qui ne sont pas définis
+- Les *snippets* peuvent référencer des variables, méthodes ou classes qui ne sont pas déclarés
 
 - Au start-up un certain nombre de librairies sont importés automatiquement (`/imports`) et des méthodes sont prédéfinies (`/methods`)
 ]
@@ -618,27 +635,39 @@ for i := 1; i < 101; i++  {
 ---
 
 .left-column[
+  ## 1. Swift
+  ## 2. Rust
+  ...
   ## 5. JShell
   ### Le langage
   ### Le conteneur
 ]
 .right-column[
 ![Docker](images/docker.png)
+![jshell-logo](images/jshell-logo-small.png)
 <br><br>
-- Image: `java:9-jdk` (image officielle)
-
 - Pattern: **Conteneur executable**
 
-- Build/run commands
+- Image: `java:9-jdk` (image officielle)
 
-```bash
-alias <exec-name>=docker run -ti --rm <image-name> <command>
-```
+- Build/run commands
+  ```bash
+  # 'Installation' de la JShell
+  alias jshell=docker run -ti --rm \
+                        java:9-jdk \
+                        jshell
+
+  # Execution de la JShell
+  jshell
+  ```
 ]
 
 ---
 
 .left-column[
+  ## 1. Swift
+  ## 2. Rust
+  ...
   ## 5. JShell
   ### Le langage
   ### Le conteneur
@@ -647,27 +676,20 @@ alias <exec-name>=docker run -ti --rm <image-name> <command>
 .right-column[
 
 ```bash
-# 'Installation' de la JShell
-alias jshell=docker run -ti --rm \
-                      java:9-jdk \
-                      jshell
-
-# Execution de la JShell
-jshell
-
 # Pour sortir
 -> /exit
+
+# Autres commandes
+-> /list
+-> /list all
+-> /imports
+-> /methods
+-> /edit <item>
 ```
 
 ```java
 // Hello World (pas besoin de main, ni de `;`)
 printf("Hello, World")
-
-// Declaration d'une fonction
-int factorial(int n) {
-	// do something....
-	return i;
-}
 
 // Condition if
 if (val == 0) {
@@ -687,21 +709,14 @@ for (int i = 1; i <= 100; i++) {
 ---
 
 .left-column[
-## 6. ArnoldC
-]
-.right-column[
-<br><br><br><br>
-![Rust](images/arnoldc.jpg)
-]
-
----
-
-.left-column[
+  ## 1. Swift
+  ## 2. Rust
+  ...
   ## 6. ArnoldC
   ### Le langage
 ]
 .right-column[
-![Swift](images/arnoldc-logo-small.png)
+![ArnoldC-logo](images/arnoldc-logo-small.jpeg)
 <br><br>
 - Développé par
 
@@ -721,25 +736,29 @@ for (int i = 1; i <= 100; i++) {
 ---
 
 .left-column[
+  ## 1. Swift
+  ## 2. Rust
+  ...
   ## 6. ArnoldC
   ### Le langage
   ### Le conteneur
 ]
 .right-column[
 ![Docker](images/docker.png)
+![ArnoldC-logo](images/arnoldc-logo-small.jpeg)
 <br><br>
-- Image: `mariolet/arnoldc`
-
 - Pattern: **Les sources sont partagées dans un volume**
 
-- Build/run commands
+- Image: `mariolet/arnoldc`
 
-```bash
-docker run --rm \
-    -v $(pwd):/src/ \
-    <image> \
-    <command>
-```
+- Build/run commands
+  ```bash
+  # Build and run
+  docker run --rm \
+      -v $(pwd):/src/ \
+      mariolet/arnoldc \
+      hello.arnoldc
+  ```
 ]
 
 ---
@@ -758,28 +777,9 @@ TALK TO THE HAND "Hello, World"
 YOU HAVE BEEN TERMINATED
 
 // Build et Execution d'une application
-rustc hello.rs
-./hello
-
-// Avec Docker
-// docker build -t hellorust .
-// docker run hellorust
-
-
-// Declaration d'une fonction
-fn factorial(n: i32) -> i32 {
-	do something....
-	i
-}
-
+java -jar /arnoldc/ArnoldC.jar -run hello.arnoldc
 
 // Condition if
-if val == 0 {
-  // Some code here
-} else if val == 1 {
-  // Some code here
-}
-
 BECAUSE I'M GOING TO SAY PLEASE value
 [statements]
 BULLSHIT
@@ -788,13 +788,60 @@ YOU HAVE NO RESPECT FOR LOGIC
 
 
 // Boucle for in
-for num in 1...100 {//iterate from 1 to 100}
+STICK AROUND value
+[statements]
+CHILL
+
+// Déclaration d'une variable
+STICK AROUND myvar
+[statements]
+CHILL
+
+// Assignation d'une variable
+GET TO THE CHOPPER myvar
+HERE IS MY INVITATION firstOperand
+[operations]
+ENOUGH TALK
+
+// operations
+GET UP operand // firstOperand + operand
+YOU'RE FIRED operand // firstOperand * operand
 ```
 ]
 
 ---
 
+template: inverse
+
+## Conclusion
+
+---
+class: center
+<br><br>
+![fivelangs-logo](images/fivelangs.png)
+
+--
+
+<br><br>
+![Docker](images/docker.png)
+
+*Les sources sont partagées dans un volume*
+
+*Le build docker fait un build de l'application*
+
+*Run en background et exec all the things*
+
+*Le conteneur comme Runtime Environment*
+
+*Copie du livrable dans l'image*
+
+*Conteneur executable*
+
+---
+
 ## Resources
+
+- [A Swift Tour](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/GuidedTour.html)
 
 - [The Rust Programming Language Book](https://doc.rust-lang.org/stable/book/)
 
