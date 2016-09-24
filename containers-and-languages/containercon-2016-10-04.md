@@ -4,7 +4,7 @@ class: center, middle, inverse
 ---
 layout: false
 template: inverse
-class: center, middle, doclipser
+class: center, middle
 
 <br><br>
 # 5 Containers for 5 Languages
@@ -20,6 +20,7 @@ template: inverse
 layout: false
 
 .large[
+<br>
 .left[Haikel (@hguemar)............................![haikel](images/mario_pixels.png)]
 <br>
 .left[Mario (@mariolet)...........................![mario](images/mario_pixels.png)]
@@ -42,9 +43,9 @@ layout: false
 <br><br>
   - Haskell and `Dockerize your tools`
 <br><br>
-  - Go and `Docker Socket mount`
+  - Go and `Mount the Docker socket`
 <br><br>
-  - Rust and `Docker Launcher`
+  - Rust and `Use a Docker launcher`
 ]
 
 ---
@@ -56,7 +57,7 @@ template: inverse
 ---
 
 .left-column[
-.footnote[https://goo.gl/T6ZIEl | @mariolet ]
+.footnote[@hguemar, @mariolet, @mjbright ]
 
   ## 1. Swift
   ### Language
@@ -65,59 +66,22 @@ template: inverse
 ![Swift](images/swift-logo-small.png)
 <br><br>
 - Maintained by Apple
-
 - First version published in 2014
-
 - Open Source since November 2015 for iOS, OS X, Linux and FreeBSD
-
 - Inspired by Objective-C, Rust, Haskell, Ruby, Python, C#
-
 - Multi-paradigm : OO and functional
-
 - Static, strongly typed with type inference
-
-- GC based on Automatic Reference Counting
-
+- GC based on Automatic Reference Counting      
 - n.1 language in StackOverflow 2015 ranking
 ]
 
 ---
 
 .left-column[
-.footnote[https://goo.gl/T6ZIEl | @mariolet ]
+.footnote[@hguemar, @mariolet, @mjbright ]
 
   ## 1. Swift
   ### Language
-  ### Container
-]
-.right-column[
-![Docker](images/docker.png)
-![Swift](images/swift-logo-small.png)
-<br><br>
-- Pattern: **Copy sources**
-
-- Image: `swiftdocker/swift`
-
-- Build/run commands
-```bash
-docker build -t swift-app .
-docker run -d -P swift-app 
-```
-]
-
----
-
-NEXT SLIDES STILL NEED TO BE TRANSLATED 
-
----
-
-.left-column[
-.footnote[https://goo.gl/T6ZIEl | @mariolet ]
-
-  ## 1. Swift
-  ### Le langage
-  ### Le conteneur
-  ### Cheat Sheet
 ]
 .right-column[
 ```swift
@@ -125,18 +89,18 @@ NEXT SLIDES STILL NEED TO BE TRANSLATED
 print("Hello World")
 
 
-// Build et Execution d'une application
+// Build and execution one application
 swift hello.swift
 
 
-// Declaration d'une fonction
+// Function declaration
 func factorial(n: Int) -> Int {
 	// do something....
 	return i
 }
 
 
-// Condition if
+// If condition
 if val == 0 {
   // Some code here
 } else if val == 1 {
@@ -144,7 +108,7 @@ if val == 0 {
 }
 
 
-// Boocle for in
+// For loop
 for num in 1...100 {//iterate from 1 to 100
   // do something....
 }
@@ -154,7 +118,62 @@ for num in 1...100 {//iterate from 1 to 100
 ---
 
 .left-column[
-.footnote[https://goo.gl/T6ZIEl | @mariolet ]
+.footnote[@hguemar, @mariolet, @mjbright ]
+
+  ## 1. Swift
+  ### Language
+  ### Container
+]
+.right-column[
+## Pattern: Copy sources ![Docker](images/docker.png)
+
+- Build Pattern
+
+- Sources are copied inside the image
+
+- Simplest build pattern
+
+- A new image should be built for every code change
+
+- Build tools are included in the image
+
+- Usually a different image is used to run the application
+]
+
+---
+.left-column[
+.footnote[@hguemar, @mariolet, @mjbright ]
+
+  ## 1. Swift
+  ### Language
+  ### Container
+]
+.right-column[
+## Demo: Copy Swift sources ![Docker](images/docker.png)
+- Base Docker Image:
+
+    **containerlanguages/swift**
+
+- Source code:
+
+    https://github/l0rd/containers-and-languages/swift
+
+- Build and run commands
+```
+docker build -t swiftapp .
+docker run -d swiftapp
+```
+]
+
+---
+
+NEXT SLIDES STILL NEED TO BE TRANSLATED
+
+
+---
+
+.left-column[
+.footnote[@hguemar, @mariolet, @mjbright ]
 
   ## 1. Swift
 ## 2. Rust
@@ -184,7 +203,7 @@ for num in 1...100 {//iterate from 1 to 100
 ---
 
 .left-column[
-.footnote[https://goo.gl/T6ZIEl | @mariolet ]
+.footnote[@hguemar, @mariolet, @mjbright ]
 
   ## 1. Swift
   ## 2. Rust
@@ -298,7 +317,7 @@ factorial n = n * factorial (n-1)
 ---
 
 .left-column[
-.footnote[https://goo.gl/T6ZIEl | @mariolet ]
+.footnote[@hguemar, @mariolet, @mjbright ]
 
   ## 1. Swift
   ## 2. Rust
@@ -412,7 +431,7 @@ mod n 3
 ---
 
 .left-column[
-.footnote[https://goo.gl/T6ZIEl | @mariolet ]
+.footnote[@hguemar, @mariolet, @mjbright ]
 
   ## 1. Swift
   ## 2. Rust
@@ -444,7 +463,7 @@ mod n 3
 ---
 
 .left-column[
-.footnote[https://goo.gl/T6ZIEl | @mariolet ]
+.footnote[@hguemar, @mariolet, @mjbright ]
 
   ## 1. Swift
   ## 2. Rust
@@ -518,7 +537,7 @@ for i := 1; i < 101; i++  {
 ---
 
 .left-column[
-.footnote[https://goo.gl/T6ZIEl | @mariolet ]
+.footnote[@hguemar, @mariolet, @mjbright ]
 
   ## 1. Swift
   ## 2. Rust
@@ -550,7 +569,7 @@ for i := 1; i < 101; i++  {
 ---
 
 .left-column[
-.footnote[https://goo.gl/T6ZIEl | @mariolet ]
+.footnote[@hguemar, @mariolet, @mjbright ]
 
   ## 1. Swift
   ## 2. Rust
@@ -596,7 +615,7 @@ for (int i = 1; i <= 100; i++) {
 ---
 
 .left-column[
-.footnote[https://goo.gl/T6ZIEl | @mariolet ]
+.footnote[@hguemar, @mariolet, @mjbright ]
 
   ## 1. Swift
   ## 2. Rust
@@ -625,7 +644,7 @@ for (int i = 1; i <= 100; i++) {
 ---
 
 .left-column[
-.footnote[https://goo.gl/T6ZIEl | @mariolet ]
+.footnote[@hguemar, @mariolet, @mjbright ]
 
   ## 1. Swift
   ## 2. Rust
@@ -655,7 +674,7 @@ for (int i = 1; i <= 100; i++) {
 ---
 
 .left-column[
-.footnote[https://goo.gl/T6ZIEl | @mariolet ]
+.footnote[@hguemar, @mariolet, @mjbright ]
 
   ## 6. ArnoldC
   ### Le langage
