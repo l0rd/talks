@@ -59,7 +59,7 @@ template: inverse
 .left-column[
 .footnote[@hguemar, @mariolet, @mjbright ]
 
-  ## 1. Swift
+  ## SWIFT
   ### Language
 ]
 .right-column[
@@ -80,7 +80,7 @@ template: inverse
 .left-column[
 .footnote[@hguemar, @mariolet, @mjbright ]
 
-  ## 1. Swift
+  ## SWIFT
   ### Language
 ]
 .right-column[
@@ -120,7 +120,7 @@ for num in 1...100 {//iterate from 1 to 100
 .left-column[
 .footnote[@hguemar, @mariolet, @mjbright ]
 
-  ## 1. Swift
+  ## SWIFT
   ### Language
   ### Container
 ]
@@ -144,7 +144,7 @@ for num in 1...100 {//iterate from 1 to 100
 .left-column[
 .footnote[@hguemar, @mariolet, @mjbright ]
 
-  ## 1. Swift
+  ## SWIFT
   ### Language
   ### Container
 ]
@@ -167,6 +167,235 @@ docker run -d swiftapp
 
 ---
 
+template: inverse
+
+## JavaScript and Mount sources
+
+---
+
+.left-column[
+.footnote[@hguemar, @mariolet, @mjbright ]
+
+  ## SWIFT
+## JS
+  ### Language
+]
+.right-column[
+![JavaScript](images/javascript-logo-small.png)
+<br><br>
+- Created in 10 days in May 1995 by Brendan Eich
+- Has become a standard: ECMAScript
+- Dynamic, untyped, and interpreted programming language
+- Supports object oriented programming through prototypes (influenced by Self)
+- Supports functional programming (influenced by Scheme)
+- Got popular with Ajax technique
+- Started as a client side technology
+- Now popular as a server side language too (NodeJS)
+]
+
+---
+
+.left-column[
+.footnote[@hguemar, @mariolet, @mjbright ]
+
+  ## SWIFT
+## JS
+  ### Language
+]
+.right-column[
+```javascript
+// Hello World
+
+
+// Build and execution one application
+
+
+// Function declaration
+
+
+// If condition
+
+
+// For loop
+```
+]
+
+---
+
+.left-column[
+.footnote[@hguemar, @mariolet, @mjbright ]
+
+  ## SWIFT
+## JS
+  ### Language
+  ### Container
+]
+.right-column[
+## Pattern: Mount sources ![Docker](images/docker-mini.png)
+
+- Build and Runtime Pattern
+
+- Source folder is bind mounted when running the container
+
+- Pattern particularly suited for dynamic languages
+
+- Not recommended for production
+
+- No need to rebuild or restart container when sources are updated
+
+- Build tools are included in the image
+
+- The same image can be used to compile and run the application
+]
+
+---
+.left-column[
+.footnote[@hguemar, @mariolet, @mjbright ]
+
+  ## SWIFT
+## JS
+  ### Language
+  ### Container
+]
+.right-column[
+## Demo: Mount JS sources
+![Docker](images/docker-mini.png) ![Docker](images/javascript-logo-mini.png)
+#### Docker Image
+    containerlanguages/js
+####Source code:
+    https://github/l0rd/containers-and-languages/js
+#### Build and run commands
+```bash
+docker run -d -v $(pwd):/src/ containerlanguages/js
+```
+]
+
+---
+
+template: inverse
+
+## Haskell and Dockerize your tools
+
+---
+
+.left-column[
+.footnote[@hguemar, @mariolet, @mjbright ]
+
+  ## SWIFT
+  ## JS
+## HASKELL
+  ### Language
+]
+.right-column[
+![Haskell](images/haskell-logo-small.png)
+<br><br>
+- First released in 1990
+- Influenced by Miranda (proprietary)
+- Haskell is a standard (Haskell 2010) and it's best known implementation is the Glasgow Haskell Compiler (GHC)
+- Pure functional language (data are immutable)
+- Static, strongly typed with type inference
+- Indentation is significant in Haskell (**layout** vs `;`+`{}`)
+- Functions can be declared recursively
+```haskell
+factorial 1 = 1
+factorial n = n * factorial (n-1)
+```
+]
+
+---
+
+.left-column[
+.footnote[@hguemar, @mariolet, @mjbright ]
+
+  ## SWIFT
+  ## JS
+## HASKELL
+  ### Language
+]
+.right-column[
+```haskell
+-- Hello World
+main = putStrLn "Hello, World!"
+
+-- Build et Execution of an application
+ghc -o hello hello.hs
+./hello
+
+-- Function declaration
+factorial n =
+  -- do something ...
+
+-- If condition
+if val == 0
+  then
+    -- Some code here
+  else
+    -- Some code here
+
+-- Recursion is used for loops
+printStringNTimes 0 = return ()
+printStringNTimes n =
+  do
+   -- Do Something
+   printStringNTimes (n-1)
+
+-- To print and integer
+print i
+
+-- To calculat modulo of an integer
+mod n 3
+```
+]
+
+---
+
+.left-column[
+.footnote[@hguemar, @mariolet, @mjbright ]
+
+  ## SWIFT
+  ## JS
+## HASKELL
+  ### Language
+  ### Container
+]
+.right-column[
+## Pattern: Dockerize your tools ![Docker](images/docker-mini.png)
+- Build Pattern
+- A tool is packaged and distributed as a Docker image
+- Allow to run multiple versions of the same tool
+- The tool version and installation is described in a Dockerfile
+- Files can be shared between the container and the host with volumes
+- `alias` command can be used to make it easier to run
+]
+
+---
+.left-column[
+.footnote[@hguemar, @mariolet, @mjbright ]
+
+  ## SWIFT
+  ## JS
+## HASKELL
+  ### Language
+  ### Container
+]
+.right-column[
+## Demo: Dockerize GHC ![Docker](images/docker-mini.png) ![Docker](images/haskell-logo-mini.png)
+#### Docker Image
+    containerlanguages/haskell
+####Source code:
+    https://github/l0rd/containers-and-languages/haskell
+#### Build and run commands
+```bash
+# Make the alias of the dockerized tool
+alias ghc="docker run -d -v $(pwd):/src/ \
+                       containerlanguages/haskell"
+# Run the tool
+ghc
+```
+]
+
+---
+
 NEXT SLIDES STILL NEED TO BE TRANSLATED
 
 
@@ -175,7 +404,7 @@ NEXT SLIDES STILL NEED TO BE TRANSLATED
 .left-column[
 .footnote[@hguemar, @mariolet, @mjbright ]
 
-  ## 1. Swift
+  ## SWIFT
 ## 2. Rust
   ### Le langage
 ]
@@ -205,7 +434,7 @@ NEXT SLIDES STILL NEED TO BE TRANSLATED
 .left-column[
 .footnote[@hguemar, @mariolet, @mjbright ]
 
-  ## 1. Swift
+  ## SWIFT
   ## 2. Rust
   ### Le langage
   ### Le conteneur
@@ -237,7 +466,7 @@ docker run hellorust
 .left-column[
 .footnote[@mariolet ]
 
-  ## 1. Swift
+  ## SWIFT
   ## 2. Rust
   ### Le langage
   ### Le conteneur
@@ -287,9 +516,9 @@ println!("{}", i);
 .left-column[
 .footnote[ @mariolet ]
 
-  ## 1. Swift
+  ## SWIFT
   ## 2. Rust
-## 3. Haskell
+## HASKELL
   ### Le langage
 ]
 .right-column[
@@ -319,9 +548,9 @@ factorial n = n * factorial (n-1)
 .left-column[
 .footnote[@hguemar, @mariolet, @mjbright ]
 
-  ## 1. Swift
+  ## SWIFT
   ## 2. Rust
-  ## 3. Haskell
+  ## HASKELL
   ### Le langage
   ### Le conteneur
 ]
@@ -351,9 +580,9 @@ factorial n = n * factorial (n-1)
 .left-column[
 .footnote[ @mariolet ]
 
-  ## 1. Swift
+  ## SWIFT
   ## 2. Rust
-  ## 3. Haskell
+  ## HASKELL
   ### Le langage
   ### Le conteneur
   ### Cheat Sheet
@@ -402,9 +631,9 @@ mod n 3
 .left-column[
 .footnote[@mariolet ]
 
-  ## 1. Swift
+  ## SWIFT
   ## 2. Rust
-  ## 3. Haskell
+  ## HASKELL
 ## 4. Go
   ### Le langage
 ]
@@ -433,9 +662,9 @@ mod n 3
 .left-column[
 .footnote[@hguemar, @mariolet, @mjbright ]
 
-  ## 1. Swift
+  ## SWIFT
   ## 2. Rust
-  ## 3. Haskell
+  ## HASKELL
   ## 4. Go
   ### Le langage
   ### Le conteneur
@@ -465,9 +694,9 @@ mod n 3
 .left-column[
 .footnote[@hguemar, @mariolet, @mjbright ]
 
-  ## 1. Swift
+  ## SWIFT
   ## 2. Rust
-  ## 3. Haskell
+  ## HASKELL
   ## 4. Go
   ### Le langage
   ### Le conteneur
@@ -510,7 +739,7 @@ for i := 1; i < 101; i++  {
 .left-column[
 .footnote[ @mariolet ]
 
-  ## 1. Swift
+  ## SWIFT
   ## 2. Rust
   ...
 ## 5. JShell
@@ -539,7 +768,7 @@ for i := 1; i < 101; i++  {
 .left-column[
 .footnote[@hguemar, @mariolet, @mjbright ]
 
-  ## 1. Swift
+  ## SWIFT
   ## 2. Rust
   ...
   ## 5. JShell
@@ -571,7 +800,7 @@ for i := 1; i < 101; i++  {
 .left-column[
 .footnote[@hguemar, @mariolet, @mjbright ]
 
-  ## 1. Swift
+  ## SWIFT
   ## 2. Rust
   ...
   ## 5. JShell
@@ -617,7 +846,7 @@ for (int i = 1; i <= 100; i++) {
 .left-column[
 .footnote[@hguemar, @mariolet, @mjbright ]
 
-  ## 1. Swift
+  ## SWIFT
   ## 2. Rust
   ...
 ## 6. ArnoldC
@@ -646,7 +875,7 @@ for (int i = 1; i <= 100; i++) {
 .left-column[
 .footnote[@hguemar, @mariolet, @mjbright ]
 
-  ## 1. Swift
+  ## SWIFT
   ## 2. Rust
   ...
   ## 6. ArnoldC
