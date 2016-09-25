@@ -21,11 +21,11 @@ layout: false
 
 .large[
 <br>
-.left[Haikel (@hguemar)............................![haikel](images/mario_pixels.png)]
+.left[Haikel (@hguemar).....................![haikel](images/haikel-round.png) ![redhat](images/redhat.png)]
 <br>
-.left[Mario (@mariolet)...........................![mario](images/mario_pixels.png)]
+.left[Mario (@mariolet)........................![mario](images/mario-round.png) ![redhat](images/redhat.png)]
 <br>
-.left[Mike (@mjbright)............................![mike](images/mario_pixels.png)]
+.left[Mike (@mjbright)..........................![mike](images/mike-round.png) ![hp](images/hp.png)]
 ]
 
 ---
@@ -45,7 +45,7 @@ layout: false
 <br><br>
   - Go and `Mount the Docker socket`
 <br><br>
-  - Rust and `Use a Docker launcher`
+  - Rust and `Containers launcher`
 ]
 
 ---
@@ -126,17 +126,11 @@ for num in 1...100 {//iterate from 1 to 100
 ]
 .right-column[
 ## Pattern: Copy sources ![Docker](images/docker.png)
-
 - Build Pattern
-
 - Sources are copied inside the image
-
 - Simplest build pattern
-
 - A new image should be built for every code change
-
 - Build tools are included in the image
-
 - Usually a different image is used to run the application
 ]
 
@@ -150,16 +144,12 @@ for num in 1...100 {//iterate from 1 to 100
 ]
 .right-column[
 ## Demo: Copy Swift sources ![Docker](images/docker.png)
-- Base Docker Image:
+**Docker Image**<br>containerslanguages/swift
 
-    **containerlanguages/swift**
+**Source code**<br>https://github/l0rd/containers-and-languages/swift
 
-- Source code:
-
-    https://github/l0rd/containers-and-languages/swift
-
-- Build and run commands
-```
+**Build and run commands**
+```bash
 docker build -t swiftapp .
 docker run -d swiftapp
 ```
@@ -234,17 +224,11 @@ template: inverse
 ## Pattern: Mount sources ![Docker](images/docker-mini.png)
 
 - Build and Runtime Pattern
-
 - Source folder is bind mounted when running the container
-
 - Pattern particularly suited for dynamic languages
-
 - Not recommended for production
-
 - No need to rebuild or restart container when sources are updated
-
 - Build tools are included in the image
-
 - The same image can be used to compile and run the application
 ]
 
@@ -258,15 +242,15 @@ template: inverse
   ### Container
 ]
 .right-column[
-## Demo: Mount JS sources
-![Docker](images/docker-mini.png) ![Docker](images/javascript-logo-mini.png)
-#### Docker Image
-    containerlanguages/js
-####Source code:
-    https://github/l0rd/containers-and-languages/js
-#### Build and run commands
+## Demo: Mount JS sources ![Docker](images/docker-mini.png) ![Docker](images/javascript-logo-mini.png)
+
+**Docker Image**<br>containerslanguages/js
+
+**Source code**<br>https://github/l0rd/containers-and-languages/js
+
+**Build and run command**
 ```bash
-docker run -d -v $(pwd):/src/ containerlanguages/js
+docker run -d -v $(pwd):/src/ containerslanguages/js
 ```
 ]
 
@@ -287,8 +271,7 @@ template: inverse
   ### Language
 ]
 .right-column[
-![Haskell](images/haskell-logo-small.png)
-<br><br>
+![Haskell](images/haskell-logo-with-name.png)
 - First released in 1990
 - Influenced by Miranda (proprietary)
 - Haskell is a standard (Haskell 2010) and it's best known implementation is the Glasgow Haskell Compiler (GHC)
@@ -329,8 +312,6 @@ factorial n =
 if val == 0
   then
     -- Some code here
-  else
-    -- Some code here
 
 -- Recursion is used for loops
 printStringNTimes 0 = return ()
@@ -341,9 +322,6 @@ printStringNTimes n =
 
 -- To print and integer
 print i
-
--- To calculat modulo of an integer
-mod n 3
 ```
 ]
 
@@ -380,15 +358,16 @@ mod n 3
 ]
 .right-column[
 ## Demo: Dockerize GHC ![Docker](images/docker-mini.png) ![Docker](images/haskell-logo-mini.png)
-#### Docker Image
-    containerlanguages/haskell
-####Source code:
-    https://github/l0rd/containers-and-languages/haskell
-#### Build and run commands
+
+**Docker Image**<br>containerslanguages/haskell
+
+**Source code**<br>https://github/l0rd/containers-and-languages/haskell
+
+**Run command**
 ```bash
 # Make the alias of the dockerized tool
 alias ghc="docker run -d -v $(pwd):/src/ \
-                       containerlanguages/haskell"
+                       containerslanguages/haskell"
 # Run the tool
 ghc
 ```
@@ -396,8 +375,9 @@ ghc
 
 ---
 
-NEXT SLIDES STILL NEED TO BE TRANSLATED
+template: inverse
 
+## Go and Mount the Docker socket
 
 ---
 
@@ -405,28 +385,22 @@ NEXT SLIDES STILL NEED TO BE TRANSLATED
 .footnote[@hguemar, @mariolet, @mjbright ]
 
   ## SWIFT
-## 2. Rust
-  ### Le langage
+  ## JS
+  ## HASKELL
+## GO
+  ### Language
 ]
 .right-column[
-![Rust-logo](images/rust-logo-small.png)
-<br>
-- Développé par Mozilla Research depuis 2009
-
-- Open Source : la plus part des contributions viennent de la communauté
-
-- Influencé par C, C++, Haskell
-
-- Multi-paradigme : impératif, fonctionnel, OO
-
-- Statique, fortement typé avec inférence de type
-
-- Performant comme du C++ (pas de garbage collector)
-
-- Critiqué pour son instabilité
-
-- n.1 dansle classement StackOverflow 2016
-
+![Go](images/golang-logo-with-name.jpeg)
+- Development started at Google in 2006
+- Influenced by C, Newsqueak, Moudula, Smalltalk and Python
+- Object Oriented style with composition over inheritance
+- Static, strongly typed with type inference
+- Designed for:
+  - Big size projects (as Java or C++)
+  - As fast as C
+  - As fast to compile and run as a Python
+- Some features have been sacrificed to keep the language simple. A well known example are Generics.
 ]
 
 ---
@@ -435,272 +409,10 @@ NEXT SLIDES STILL NEED TO BE TRANSLATED
 .footnote[@hguemar, @mariolet, @mjbright ]
 
   ## SWIFT
-  ## 2. Rust
-  ### Le langage
-  ### Le conteneur
-]
-.right-column[
-![Docker](images/docker.png)
-![Rust-logo](images/rust-logo-small.png)
-<br><br>
-- Pattern: **Le build docker fait un build de l'applicaiton** (variante on-build)
-
-- Image: `mariolet/rust`
-```Dockerfile
-...
-ONBUILD COPY / /src/
-ONBUILD WORKDIR /src/
-```
-
-- Build/run commands
-```bash
-# Build
-docker build -t hellorust .
-# Run
-docker run hellorust
-```
-]
-
----
-
-.left-column[
-.footnote[@mariolet ]
-
-  ## SWIFT
-  ## 2. Rust
-  ### Le langage
-  ### Le conteneur
-  ### Cheat Sheet
-]
-.right-column[
-```rust
-// Hello World
-fn main() {
-    println!("Hello World!");
-}
-
-
-// Build et Execution d'une application
-rustc hello.rs
-./hello
-
-
-// Declaration d'une fonction
-fn factorial(n: i32) -> i32 {
-	// do something....
-	i // do not use `;` to return a value
-}
-
-
-// Condition if
-if val == 0 {
-  // Some code here
-} else if val == 1 {
-  // Some code here
-}
-
-
-// Boucle for in
-for num in 1..101 { //iterate from 1 to 100
-  // do something....
-}
-
-// Pour afficher un entier
-println!("{}", i);
-
-```
-]
-
----
-
-.left-column[
-.footnote[ @mariolet ]
-
-  ## SWIFT
-  ## 2. Rust
-## HASKELL
-  ### Le langage
-]
-.right-column[
-![Haskell-logo](images/haskell-logo-small.png)
-<br><br>
-- La première version a été pubbliée en 1990
-
-- Influencé par Miranda (langage purement fonctionnel mais propriétaire)
-
-- C'est un standard ouvert (Haskell 2010) et l'implémentation principale est le Glasgow Haskell Compiler (GHC)
-
-- Paradigme purement fonctionnel (données immuables)
-
-- Statique, fortement typé avec inférence de type
-
-- L'indentation est significative (**layout** vs `;`+`{}`)
-
-- Les fonctions peuvent être déclarée de façon récursive
-```haskell
-factorial 1 = 1
-factorial n = n * factorial (n-1)
-```
-]
-
----
-
-.left-column[
-.footnote[@hguemar, @mariolet, @mjbright ]
-
-  ## SWIFT
-  ## 2. Rust
+  ## JS
   ## HASKELL
-  ### Le langage
-  ### Le conteneur
-]
-.right-column[
-![Docker](images/docker.png)
-![Haskell-logo](images/haskell-logo-small.png)
-<br><br>
-- Pattern: **Run en background et exec all the things**
-
-- Image: `haskell` (image officielle)
-
-- Build/run commands
-  ```bash
-  docker run --name haskell -d \
-              -v $(pwd):/src/ haskell \
-              tail -f /dev/null
-  #Build
-  docker exec haskell ghc -o hello /src/hello.hs
-
-  # Run
-  docker exec haskell ./hello
-  ```
-]
-
----
-
-.left-column[
-.footnote[ @mariolet ]
-
-  ## SWIFT
-  ## 2. Rust
-  ## HASKELL
-  ### Le langage
-  ### Le conteneur
-  ### Cheat Sheet
-]
-.right-column[
-```haskell
--- Hello World
-main = putStrLn "Hello, World!"
-
--- Build et Execution d'une application
--- ghc -o hello hello.hs
--- ./hello
-
--- Declaration d'une fonction
-factorial n =
-  -- do something ...
-  i
-
--- Condition if
-if val == 0
-  then
-    -- Some code here
-  else if val == 1
-    then
-      -- Some code here
-
--- On utilise la récursion pour faire des boucles
-printStringNTimes 0 = return ()
-printStringNTimes n =
-  do
-   -- Do Something
-   printStringNTimes (n-1)
-
--- Pour afficher un entier
-print i
-
--- Pour calculer le modulo d'un entier
-mod n 3
-
-```
-
-]
-
----
-
-.left-column[
-.footnote[@mariolet ]
-
-  ## SWIFT
-  ## 2. Rust
-  ## HASKELL
-## 4. Go
-  ### Le langage
-]
-.right-column[
-![golang-logo](images/golang-logo-small.png)
-- Développé par Google depuis 2006
-
-- Open Source et disponible pour Linux, OS X, Windows, Solaris, \*BSD
-
-- Influencé par C, Newsqueak, Modula, Smalltalk, Python
-
-- Paradigme : impératif
-
-- Statique, fortement typé avec inférence de type
-
-- Langage conçu pour :
-  - Des gros projets comme Java ou C++
-  - Avoir les performances du C
-  - Avoir des temps de build/run très rapide (comparables aux langage de scripting)
-
-- Absence du concept de generics et de classes (mais supporte l'héritage avec les interfaces)
-]
-
----
-
-.left-column[
-.footnote[@hguemar, @mariolet, @mjbright ]
-
-  ## SWIFT
-  ## 2. Rust
-  ## HASKELL
-  ## 4. Go
-  ### Le langage
-  ### Le conteneur
-]
-.right-column[
-![Docker](images/docker.png)
-![golang-logo](images/golang-logo-small.png)
-<br><br>
-- Patterns: **Le conteneur comme Runtime Environment**, **Copie du livrable dans l'image**
-
-- Image: `scratch` (image officielle)
-
-- Build/run commands
-  ```bash
-  # Build (cette fois-ci nous n'utiliserons Docker)
-  CGO_ENABLED=0 GOOS=linux go build \
-        -a -installsuffix cgo hello.go
-
-  # Run
-  docker build -t hellogo .
-  docker run -d -p 9090:9090 hellogo
-  ```
-]
-
----
-
-.left-column[
-.footnote[@hguemar, @mariolet, @mjbright ]
-
-  ## SWIFT
-  ## 2. Rust
-  ## HASKELL
-  ## 4. Go
-  ### Le langage
-  ### Le conteneur
-  ### Cheat Sheet
+## GO
+  ### Language
 ]
 .right-column[
 ```go
@@ -711,23 +423,23 @@ func main() {
 	fmt.Println("Hello, World!")
 }
 
-// Build et Execution d'une application
-// go build hello.go && ./hello (mais aussi go run hello.go)
+// Build and execution of an application
+go build hello.go && ./hello
+// That's equivalent to
+go run hello.go
 
-// Declaration d'une fonction
+// Function declaration
 func factorial(n int) int {
 	do something....
 	return i
 }
 
-// Condition if
+// If condtion
 if val == 0 {
-  // Some code here
-} else if val == 1 {
   // Some code here
 }
 
-// Boucle for
+// For loop
 for i := 1; i < 101; i++  {
   //iterate from 1 to 100
 }
@@ -737,137 +449,80 @@ for i := 1; i < 101; i++  {
 ---
 
 .left-column[
-.footnote[ @mariolet ]
+.footnote[@hguemar, @mariolet, @mjbright ]
 
   ## SWIFT
-  ## 2. Rust
-  ...
-## 5. JShell
-  ### Le langage
+  ## JS
+  ## HASKELL
+## GO
+  ### Language
+  ### Container
 ]
 .right-column[
-![jshell-logo](images/jshell-logo-small.png)
-<br><br>
-- Développé par Oracle (JEP 222)
-
-- Fait partie de OpenJDK 9, sera livré avec la JDK 9
-
-- Influencé par les REPL (read-eval-print-loop) d'autres langages comme Scala, Ruby, JavaScript, Haskell, Clojure et Python
-
-- C'est du Java donc OOP, statique, fortément typé
-
-- Pas besoin de définir une classe et un main pour executer du code
-
-- Les *snippets* peuvent référencer des variables, méthodes ou classes qui ne sont pas déclarés
-
-- Au start-up un certain nombre de librairies sont importés automatiquement (`/imports`) et des méthodes sont prédéfinies (`/methods`)
+## Pattern: Mount the Docker socket ![Docker](images/docker-mini.png)
+- Runtime Pattern
+- The Docker socket is bind mounted when the container is started
+- Allow to manage containers from another container
+- Usages:
+  - Container monitoring tools
+  - CI/CD tools
+  - Containers launchers
 ]
 
 ---
-
 .left-column[
 .footnote[@hguemar, @mariolet, @mjbright ]
 
   ## SWIFT
-  ## 2. Rust
-  ...
-  ## 5. JShell
-  ### Le langage
-  ### Le conteneur
+  ## JS
+  ## HASKELL
+## GO
+  ### Language
+  ### Container
 ]
 .right-column[
-![Docker](images/docker.png)
-![jshell-logo](images/jshell-logo-small.png)
-<br><br>
-- Pattern: **Conteneur executable**
+## Demo:  Mount the Docker socket ![Docker](images/docker-mini.png) ![Docker](images/golang-logo-mini.png)
 
-- Image: `java:9-jdk` (image officielle)
+**Docker Image**<br>containerslanguages/go
 
-- Build/run commands
-  ```bash
-  # 'Installation' de la JShell
-  alias jshell="docker run -ti --rm \
-                        java:9-jdk \
-                        jshell"
+**Source code**<br>https://github/l0rd/containers-and-languages/go
 
-  # Execution de la JShell
-  jshell
-  ```
-]
-
----
-
-.left-column[
-.footnote[@hguemar, @mariolet, @mjbright ]
-
-  ## SWIFT
-  ## 2. Rust
-  ...
-  ## 5. JShell
-  ### Le langage
-  ### Le conteneur
-  ### Cheat Sheet
-]
-.right-column[
-
+**Run command**
 ```bash
-# Pour sortir
--> /exit
-
-# Autres commandes
--> /list
--> /list all
--> /imports
--> /methods
--> /edit <item>
-```
-
-```java
-// Hello World (pas besoin de main, ni de `;`)
-printf("Hello, World")
-
-// Condition if
-if (val == 0) {
-  // Some code here
-} else if (val == 1) {
-  // Some code here
-}
-
-
-// Boucle for in
-for (int i = 1; i <= 100; i++) {
-  // do something
-}
+docker run -v $(pwd):/src/ \
+        -v /var/run/docker.sock:/var/run/docker.sock \
+        containerslanguages/go
 ```
 ]
+
+---
+
+template: inverse
+
+## Rust and Containers launcher
 
 ---
 
 .left-column[
 .footnote[@hguemar, @mariolet, @mjbright ]
 
-  ## SWIFT
-  ## 2. Rust
-  ...
-## 6. ArnoldC
-  ### Le langage
+  ## ...
+  ## HASKELL
+  ## GO
+## RUST  
+  ### Language
 ]
 .right-column[
-![ArnoldC-logo](images/arnoldc-logo-small.jpeg)
+![Go](images/rust-logo-with-name.png)
 <br><br>
-- [http://lhartikk.github.io/ArnoldC/](http://lhartikk.github.io/ArnoldC/)
-
-- Influencé par LOLCODE et des films de Arnold Schwarzenegger
-
-- Paradigme : impératif
-
-- Typage : un seul type est supporté (16 bit signed integer)
-
-- Le main() de ArnoldC
-  ```
-  IT'S SHOWTIME
-  YOU HAVE BEEN TERMINATED
-  ```
+- Development started at Mozilla in 2009
+- Open Source community driven project
+- Influenced by C, C++ and Haskell
+- Object Oriented and functional
+- Static, strongly typed with type inference
+- As fast as C++
+- Still not completely stable
+- Most loved language in 2016 according to StackOverflow
 ]
 
 ---
@@ -875,71 +530,86 @@ for (int i = 1; i <= 100; i++) {
 .left-column[
 .footnote[@hguemar, @mariolet, @mjbright ]
 
-  ## SWIFT
-  ## 2. Rust
-  ...
-  ## 6. ArnoldC
-  ### Le langage
-  ### Le conteneur
+  ## ...
+  ## HASKELL
+  ## GO
+## RUST  
+  ### Language
 ]
 .right-column[
-![Docker](images/docker.png)
-![ArnoldC-logo](images/arnoldc-logo-small.jpeg)
-<br><br>
-- Pattern: **Les sources sont partagées dans un volume**
-
-- Image: `mariolet/arnoldc`
-
-- Build/run commands
-  ```bash
-  # Build and run
-  docker run --rm \
-      -v $(pwd):/src/ \
-      mariolet/arnoldc \
-      hello.arnoldc
-  ```
-]
-
----
-
-.left-column[
-.footnote[@hguemar, @mariolet, @mjbright ]
-
-  ## 6. ArnoldC
-  ### Le langage
-  ### Le conteneur
-  ### Cheat Sheet
-]
-.right-column[
-```
+```rust
 // Hello World
-IT'S SHOWTIME
-TALK TO THE HAND "Hello, World"
-YOU HAVE BEEN TERMINATED
+fn main() {
+    println!("Hello World!");
+}
 
+// Build and execution of an application
+rustc hello.rs
+./hello
 
-// Build et Execution d'une application
-java -jar /arnoldc/ArnoldC.jar -run hello.arnoldc
+// Function declaration
+fn factorial(n: i32) -> i32 {
+	// do something....
+	i // do not use `;` to return a value
+}
 
+// If condition
+if val == 0 {
+  // Some code here
+}
 
-// Condition if
-BECAUSE I'M GOING TO SAY PLEASE value
-[statements]
-BULLSHIT
-[statements]
-YOU HAVE NO RESPECT FOR LOGIC
+// For in loop
+for num in 1..101 { //iterate from 1 to 100
+  // do something....
+}
 
+// To print an integer
+println!("{}", i);
+```
+]
 
-// Boucle for in
-STICK AROUND value
-[statements]
-CHILL
+---
 
-// operations
-GET UP operand // firstOperand + operand
-YOU'RE FIRED operand // firstOperand * operand
+.left-column[
+.footnote[@hguemar, @mariolet, @mjbright ]
 
-...
+  ## ...
+  ## HASKELL
+  ## GO
+## RUST  
+  ### Language
+  ### Container
+]
+.right-column[
+## Pattern: Containers launcher ![Docker](images/docker-mini.png)
+- Runtime Pattern
+- The Docker socket is bind mounted when the container is started
+- Use to compose multiple containers without Docker compose or similar
+]
+
+---
+.left-column[
+.footnote[@hguemar, @mariolet, @mjbright ]
+
+  ## ...
+  ## HASKELL
+  ## GO
+## RUST  
+  ### Language
+  ### Container
+]
+.right-column[
+## Demo: Rust containers launcher ![Docker](images/docker-mini.png) ![Docker](images/Rust-logo-mini.png)
+
+**Docker Image**<br>containerslanguages/rust
+
+**Source code**<br>https://github/l0rd/containers-and-languages/rust
+
+**Run command**
+```bash
+docker run -v $(pwd):/src/ \
+        -v /var/run/docker.sock:/var/run/docker.sock \
+        containerslanguages/rust
 ```
 ]
 
@@ -950,26 +620,11 @@ template: inverse
 ## Conclusion
 
 ---
+
 class: center
+.footnote[@hguemar, @mariolet, @mjbright ]
 <br><br>
-![fivelangs-logo](images/fivelangs.png)
-
---
-
-<br><br>
-![Docker](images/docker.png)
-
-*Les sources sont partagées dans un volume*
-
-*Le build docker fait un build de l'application*
-
-*Run en background et exec all the things*
-
-*Le conteneur comme Runtime Environment*
-
-*Copie du livrable dans l'image*
-
-*Conteneur executable*
+![fivelangs-logo](images/5container5languages-recap.png)
 
 ---
 
@@ -983,16 +638,28 @@ class: center
 
 - [A tour of Go](https://tour.golang.org/)
 
-- [JEP 222: jshell: The Java Shell (Read-Eval-Print Loop)](http://openjdk.java.net/jeps/222)
-
-- [ArnoldC sur GitHub](https://github.com/lhartikk/ArnoldC/wiki/ArnoldC)
-
 ---
 
 template: inverse
 
-## merci
+## Thank you
 
 http://l0rd.github.io/talks/containers-and-languages
 
-[@mariolet]
+[@hguemar, @mariolet, @mjbright]
+
+---
+
+TODO
+
+- JS cheatsheet
+- Swift container
+- Swift app (TODO list)
+- JS container
+- JS app (1024)
+- Haskell container
+- Haskell app (?)
+- Golang container
+- Golang app (Unit tested app or container monitoring app)
+- Rust container
+- Rust app (?)
