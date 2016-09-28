@@ -7,7 +7,7 @@ template: inverse
 class: center, middle
 
 <br><br>
-# 5 Containers for 5 Languages
+# 5 Containers Patterns for 5 Languages
 <br><br><br>
 
 
@@ -195,18 +195,31 @@ template: inverse
 .right-column[
 ```javascript
 // Hello World
+console.log('Hello World');
 
-
-// Build and execution one application
-
+// Execute one application in the browser
+// console or with nodeJS
+node hello.js
 
 // Function declaration
-
+function factorial(n) {
+    // do something...
+    return i;
+}
 
 // If condition
-
+if (a == b) {
+    // Some code
+}
 
 // For loop
+for (i = 0; i < 10; i++) {
+    // Some code
+}
+
+for (x in some_object) {
+    // Some code that uses object[x];
+}
 ```
 ]
 
