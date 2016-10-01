@@ -7,7 +7,7 @@ template: inverse
 class: center, middle
 
 <br><br>
-# 5 Containers Patterns for 5 Languages
+# 5 Container Patterns for 5 Languages
 <br><br><br>
 
 
@@ -21,11 +21,11 @@ layout: false
 
 .large[
 <br>
-.left[Haikel (@hguemar).....................![haikel](images/haikel-round.png) ![redhat](images/redhat.png)]
+.left[Haikel (@hguemar)..............![haikel](images/haikel-round.png) ![redhat](images/redhat.png)]
 <br>
-.left[Mario (@mariolet)........................![mario](images/mario-round.png) ![redhat](images/redhat.png)]
+.left[Mario (@mariolet)................![mario](images/mario-round.png) ![redhat](images/redhat.png)]
 <br>
-.left[Mike (@mjbright)..........................![mike](images/mike-round.png) ![hp](images/hp.png)]
+.left[Mike (@mjbright).................![mike](images/mike-round.png) ![hp](images/hpe.png)]
 ]
 
 ---
@@ -53,6 +53,7 @@ layout: false
 template: inverse
 
 ## Swift and Copy sources
+A build pattern
 
 ---
 
@@ -72,7 +73,7 @@ template: inverse
 - Multi-paradigm : OO and functional
 - Static, strongly typed with type inference
 - GC based on Automatic Reference Counting      
-- n.1 language in StackOverflow 2015 ranking
+- \#1 language in StackOverflow 2015 ranking
 ]
 
 ---
@@ -160,6 +161,7 @@ docker run -d swiftapp
 template: inverse
 
 ## JavaScript and Mount sources
+A build and runtime pattern
 
 ---
 
@@ -272,6 +274,7 @@ docker run -d -v $(pwd):/src/ containerslanguages/js
 template: inverse
 
 ## Haskell and Dockerize your tools
+A build pattern
 
 ---
 
@@ -382,7 +385,7 @@ print i
 alias ghc="docker run -d -v $(pwd):/src/ \
                        containerslanguages/haskell"
 # Run the tool
-ghc
+ghc app.hs
 ```
 ]
 
@@ -391,6 +394,7 @@ ghc
 template: inverse
 
 ## Go and Mount the Docker socket
+A runtime pattern
 
 ---
 
@@ -407,6 +411,7 @@ template: inverse
 ![Go](images/golang-logo-with-name.jpeg)
 - Development started at Google in 2006
 - Influenced by C, Newsqueak, Moudula, Smalltalk and Python
+- Popular: Docker, rkt, Dropbox, Uber, Kubernetes
 - Object Oriented style with composition over inheritance
 - Static, strongly typed with type inference
 - Designed for:
@@ -513,6 +518,7 @@ docker run -v $(pwd):/src/ \
 template: inverse
 
 ## Rust and Containers launcher
+A ship and runtime pattern
 
 ---
 
@@ -651,6 +657,8 @@ class: center
 
 - [A tour of Go](https://tour.golang.org/)
 
+- [JavaScript: The Good Parts, Douglas Crockford, O'Reilly](http://shop.oreilly.com/product/9780596517748.do?sortby=publicationDate)
+
 ---
 
 template: inverse
@@ -665,7 +673,6 @@ http://l0rd.github.io/talks/containers-and-languages
 
 TODO
 
-- JS cheatsheet
 - Swift container
 - Swift app (TODO list)
 - JS container
