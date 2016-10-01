@@ -145,16 +145,25 @@ for num in 1...100 {//iterate from 1 to 100
 ]
 .right-column[
 ## Demo: Copy Swift sources ![Docker](images/docker.png)
-**Docker Image**<br>containerslanguages/swift
+**Docker Image**<br>containerslanguages/swift-todolist
 
-**Source code**<br>https://github/l0rd/containers-and-languages/swift
+**Source code**<br>https://github/containerslanguages/swift
 
 **Build and run commands**
 ```bash
 docker build -t swiftapp .
-docker run -d swiftapp
+docker run -d -P swiftapp
 ```
 ]
+
+
+???
+In this pattern it's particularly important to separate in 2 distinct steps:
+- fetching the dependencies
+- build of the application
+
+
+
 
 ---
 
@@ -673,8 +682,6 @@ http://l0rd.github.io/talks/containers-and-languages
 
 TODO
 
-- Swift container
-- Swift app (TODO list)
 - JS container
 - JS app (1024)
 - Haskell container
