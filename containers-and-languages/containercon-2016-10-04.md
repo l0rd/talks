@@ -516,9 +516,8 @@ for i := 1; i < 101; i++  {
 
 **Run command**
 ```bash
-docker run -v $(pwd):/src/ \
-        -v /var/run/docker.sock:/var/run/docker.sock \
-        containerslanguages/go
+docker run -v /var/run/docker.sock:/var/run/docker.sock \
+        containerslanguages/golang
 ```
 ]
 
@@ -668,6 +667,12 @@ class: center
 
 - [JavaScript: The Good Parts, Douglas Crockford, O'Reilly](http://shop.oreilly.com/product/9780596517748.do?sortby=publicationDate)
 
+- [The Haskell Tool Stack](https://docs.haskellstack.org/en/stable/README/)
+
+- [The Rust Programming Language Book](https://doc.rust-lang.org/book/README.html)
+
+- [TodoBackend](http://www.todobackend.com/)
+
 ---
 
 template: inverse
@@ -686,7 +691,6 @@ TODO
 - JS app (1024)
 - Haskell container
 - Haskell app (?)
-- Golang container
-- Golang app (Unit tested app or container monitoring app)
 - Rust container
 - Rust app (?)
+- Complete reference
