@@ -151,8 +151,8 @@ for num in 1...100 {//iterate from 1 to 100
 
 **Build and run commands**
 ```bash
-docker build -t swiftapp .
-docker run -d -P swiftapp
+docker build -t containerslanguages/swift-todolist .
+docker run -d -P containerslanguages/swift-todolist
 ```
 ]
 
@@ -268,13 +268,15 @@ for (x in some_object) {
 .right-column[
 ## Demo: Mount JS sources ![Docker](images/docker-mini.png) ![Docker](images/javascript-logo-mini.png)
 
-**Docker Image**<br>containerslanguages/js
+**Docker Image**<br>httpd
 
-**Source code**<br>https://github/l0rd/containers-and-languages/js
+**Source code**<br>https://github/containerslanguages/js
 
 **Build and run command**
 ```bash
-docker run -d -v $(pwd):/src/ containerslanguages/js
+docker run -p 8080:80 \
+           -v $(pwd):/usr/local/apache2/htdocs/ \
+           httpd
 ```
 ]
 
@@ -384,17 +386,18 @@ print i
 .right-column[
 ## Demo: Dockerize GHC ![Docker](images/docker-mini.png) ![Docker](images/haskell-logo-mini.png)
 
-**Docker Image**<br>containerslanguages/haskell
+**Docker Image**<br>haskell:8.0
 
-**Source code**<br>https://github/l0rd/containers-and-languages/haskell
+**Source code**<br>https://github/containerslanguages/haskell
 
 **Run command**
 ```bash
 # Make the alias of the dockerized tool
-alias ghc="docker run -d -v $(pwd):/src/ \
-                       containerslanguages/haskell"
+alias ghc="docker run --rm -t -v $(pwd):/src/ \
+                      -w /src/ haskell:8.0 ghc"
+
 # Run the tool
-ghc app.hs
+ghc gameoflive/gol.hs
 ```
 ]
 
@@ -510,9 +513,9 @@ for i := 1; i < 101; i++  {
 .right-column[
 ## Demo:  Mount the Docker socket ![Docker](images/docker-mini.png) ![Docker](images/golang-logo-mini.png)
 
-**Docker Image**<br>containerslanguages/go
+**Docker Image**<br>containerslanguages/golang
 
-**Source code**<br>https://github/l0rd/containers-and-languages/go
+**Source code**<br>https://github/containerslanguages/go
 
 **Run command**
 ```bash
@@ -628,15 +631,15 @@ println!("{}", i);
 .right-column[
 ## Demo: Rust containers launcher ![Docker](images/docker-mini.png) ![Docker](images/Rust-logo-mini.png)
 
-**Docker Image**<br>containerslanguages/rust
+**Docker Image**<br>containerslanguages/rust-launcher
 
-**Source code**<br>https://github/l0rd/containers-and-languages/rust
+**Source code**<br>https://github/containerslanguages/rust
 
 **Run command**
 ```bash
 docker run -v $(pwd):/src/ \
         -v /var/run/docker.sock:/var/run/docker.sock \
-        containerslanguages/rust
+        containerslanguages/rust-launcher
 ```
 ]
 
@@ -686,13 +689,3 @@ http://l0rd.github.io/talks/containers-and-languages
 [@hguemar, @mariolet, @mjbright]
 
 ---
-
-TODO
-
-- JS container
-- JS app (1024)
-- Haskell container
-- Haskell app (?)
-- Rust container
-- Rust app (?)
-- Complete reference
