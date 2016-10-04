@@ -687,5 +687,3 @@ template: inverse
 http://l0rd.github.io/talks/containers-and-languages
 
 [@hguemar, @mariolet, @mjbright]
-
----
