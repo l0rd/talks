@@ -671,6 +671,8 @@ class: center
 
 - [The Rust Programming Language Book](https://doc.rust-lang.org/book/README.html)
 
+- [Rust by example](http://rustbyexample.com/index.html)
+
 - [TodoBackend](http://www.todobackend.com/)
 
 ---
