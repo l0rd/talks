@@ -1,4 +1,11 @@
-FROM ubuntu
+FROM tomcat
+
+RUN useradd tomcat
+
+COPY lovecunit.war /usr/local/tomcat/webapps
+
+ENTRYPOINT catalina.sh
+CMD run
 
 
 
@@ -12,11 +19,12 @@ FROM ubuntu
 
 
 
-# FROM tomcat
 
-# RUN useradd tomcat
 
-# COPY ilovecunit.war /usr/local/tomcat/webapps/
 
-# ENTRYPOINT catalina.sh
-# CMD run
+
+#FROM tomcat
+#RUN useradd tomcat
+#COPY lovecunit.war /usr/local/tomcat/webapps/
+#ENTRYPOINT catalina.sh
+#CMD run

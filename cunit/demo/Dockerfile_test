@@ -11,6 +11,12 @@
 
 
 
+
+
+
+
+
+
 # # 1. Install tomcat
 # @AFTER FROM
 # ASSERT_TRUE FILE_EXISTS /usr/local/tomcat/bin/catalina.sh
@@ -21,7 +27,7 @@
 
 # # 3. Deploy war file
 # @AFTER COPY
-# ASSERT_TRUE FILE_EXISTS /usr/local/tomcat/webapps/hello-technozaure.war
+# ASSERT_TRUE FILE_EXISTS /usr/local/tomcat/webapps/lovecunit.war
 
 # # 4. Start tomcat
 # @AFTER_RUN
