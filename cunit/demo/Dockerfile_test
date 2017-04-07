@@ -1,0 +1,19 @@
+@AFTER FROM
+ASSERT_TRUE FILE_EXISTS /usr/local/tomcat/bin/catalina.sh
+
+@AFTER RUN_USERADD
+ASSERT_TRUE USER_EXISTS 'tomcat'
+
+@AFTER COPY
+ASSERT_TRUE FILE_EXISTS /usr/local/tomcat/webapps/hello-technozaure.war
+
+@AFTER_RUN
+ASSERT_TRUE PROCESS_EXISTS 'java'
+
+
+
+
+
+
+
+
