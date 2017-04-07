@@ -1,14 +1,7 @@
-@AFTER FROM
-ASSERT_TRUE FILE_EXISTS /usr/local/tomcat/bin/catalina.sh
-
-@AFTER RUN_USERADD
-ASSERT_TRUE USER_EXISTS 'tomcat'
-
-@AFTER COPY
-ASSERT_TRUE FILE_EXISTS /usr/local/tomcat/webapps/hello-technozaure.war
-
-@AFTER_RUN
-ASSERT_TRUE PROCESS_EXISTS 'java'
+# 1. Install tomcat
+# 2. Create user tomcat
+# 3. Deploy war file
+# 4. Start tomcat
 
 
 
@@ -16,4 +9,21 @@ ASSERT_TRUE PROCESS_EXISTS 'java'
 
 
 
+
+
+# # 1. Install tomcat
+# @AFTER FROM
+# ASSERT_TRUE FILE_EXISTS /usr/local/tomcat/bin/catalina.sh
+
+# # 2. Create user tomcat
+# @AFTER RUN_USERADD
+# ASSERT_TRUE USER_EXISTS 'tomcat'
+
+# # 3. Deploy war file
+# @AFTER COPY
+# ASSERT_TRUE FILE_EXISTS /usr/local/tomcat/webapps/hello-technozaure.war
+
+# # 4. Start tomcat
+# @AFTER_RUN
+# ASSERT_TRUE PROCESS_EXISTS 'java'
 
