@@ -1,0 +1,6 @@
+export CHE_IMAGE_REPO=mariolet/che-server
+export CHE_IMAGE_TAG=k8s
+~/github/che/dockerfiles/init/modules/k8s/files/scripts/deploy_che.sh
+
+
+~/github/che/dockerfiles/init/modules/k8s/files/scripts/deploy_che.sh -c cleanup

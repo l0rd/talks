@@ -1,0 +1,6 @@
+# Verify that Docker is running first 
+docker run -ti --rm \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v ~/.che:/data/ \
+  eclipse/che:5.18.0 \
+    start --fast
