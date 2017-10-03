@@ -3,18 +3,18 @@
 // Theme
 // ---------------------------------------------------------------------------
 
-$primary          : #FFF;
-$secondary        : hsla(12, 67%, 28%, 0.51);
+$primary          : #ba0000;
+$secondary        : #ba0000;
 $tertiary         : #757575;
 $light            : #FFF;
-$dark             : #333;
+$dark             : #000000;
 $text-dark        : #212121; 
 $text-light       : $light;
 $code-background  : #F8F8F8;
 $overlay          : transparentize(#000, .5);
 $font-size        : 28px;
 $font-size-impact : 128px;
-$font             : 'Droid Serif', Helvetica, sans-serif;
+$font             : 'Yanone Kaffeesatz', 'Droid Serif', Helvetica, sans-serif;
 $font-title       : 'Yanone Kaffeesatz', Arial, Helvetica, sans-serif;
 $font-fixed       : 'Lucida Console', Monaco, monospace;
 $margin           : 20px;
@@ -55,7 +55,7 @@ blockquote {
 // ---------------------------------------------------------------------------
 
 .remark-code { font-size: .9em; }
-.remark-container { background: $dark; }
+.remark-container { background: #ffffff; color: $secondary }
 .remark-slide-scaler { box-shadow: none; }
 .remark-notes { font-size: 1.5em; }
 
@@ -78,6 +78,13 @@ blockquote {
 // Additions
 .impact {
   background-color: $primary;
+  vertical-align: middle;
+  text-align: center;
+  &, h1, h2 { color: $text-dark; }
+  h1 { font-size: $font-size-impact; }
+}
+
+.impact-component {
   vertical-align: middle;
   text-align: center;
   &, h1, h2 { color: $text-dark; }
