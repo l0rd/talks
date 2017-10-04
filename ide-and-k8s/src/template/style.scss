@@ -80,14 +80,14 @@ blockquote {
   background-color: $primary;
   vertical-align: middle;
   text-align: center;
-  &, h1, h2 { color: $text-dark; }
+  &, h1, h2 { color: $text-light; }
   h1 { font-size: $font-size-impact; }
 }
 
 .impact-component {
   vertical-align: middle;
   text-align: center;
-  &, h1, h2 { color: $text-dark; }
+  &, h1, h2 { color: $text-light; }
   h1 { font-size: $font-size-impact; }
 }
 
