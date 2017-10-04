@@ -91,6 +91,11 @@ blockquote {
   h1 { font-size: $font-size-impact; }
 }
 
+.invert-color {
+  -webkit-filter: invert(1);
+  filter: invert(1);
+}
+
 .full {
   &, h1, h2 { color: $text-light; }
   &iframe {
