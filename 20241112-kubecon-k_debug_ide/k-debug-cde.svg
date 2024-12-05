@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
-<svg width="630.00" height="405.00" xmlns="http://www.w3.org/2000/svg">
+<svg width="380.00" height="270.00" xmlns="http://www.w3.org/2000/svg">
 <style>
 @font-face {
 	font-family: &apos;JetBrains Mono&apos;;
@@ -8,21 +8,13 @@
 	font-weight: normal;
 	font-style: normal;
 }
-</style><rect width="508.00" height="283.00" fill="#171717" rx="8.00" ry="8.00" filter="url(#shadow)" stroke="#515151" stroke-width="1.00" x="60.00px" y="50.00px"/>
+</style><rect width="258.00" height="148.00" fill="#171717" rx="8.00" ry="8.00" filter="url(#shadow)" stroke="#515151" stroke-width="1.00" x="60.00px" y="50.00px"/>
 <g font-family="JetBrains Mono" font-size="14.00px" fill="#c4c4c4" clip-path="url(#terminalMask)">
-<text x="80.00px" y="101.80px" xml:space="preserve"><tspan fill="#ff875f">#!/usr/bin/env bash
-</tspan></text><text x="80.00px" y="118.60px" xml:space="preserve"><tspan fill="#ff875f"/>
-</text><text x="80.00px" y="135.40px" xml:space="preserve"><tspan fill="#676767"># Start the outyet Pod</tspan>
-</text><text x="80.00px" y="152.20px" xml:space="preserve">k apply -f outyet.yaml
-</text><text x="80.00px" y="169.00px" xml:space="preserve">
-</text><text x="80.00px" y="185.80px" xml:space="preserve"><tspan fill="#676767"># Create a copy of the Pod</tspan>
-</text><text x="80.00px" y="202.60px" xml:space="preserve"><tspan fill="#676767"># and add an IDE</tspan>
-</text><text x="80.00px" y="219.40px" xml:space="preserve">k debug-cde outyet <tspan fill="#afffd7">\
-</tspan></text><text x="80.00px" y="236.20px" xml:space="preserve"><tspan fill="#afffd7"/>  --image ghcr.io/l0rd/outyet-dev:latest <tspan fill="#afffd7">\
-</tspan></text><text x="80.00px" y="253.00px" xml:space="preserve"><tspan fill="#afffd7"/>  --copy-to outyet-debug <tspan fill="#afffd7">\
-</tspan></text><text x="80.00px" y="269.80px" xml:space="preserve"><tspan fill="#afffd7"/>  --share-processes <tspan fill="#afffd7">\
-</tspan></text><text x="80.00px" y="286.60px" xml:space="preserve"><tspan fill="#afffd7"/>  --git-repository https://github.com/l0rd/outyet.git
-</text><text x="80.00px" y="303.40px" xml:space="preserve">
+<text x="80.00px" y="101.80px" xml:space="preserve">k debug-cde $pod <tspan fill="#afffd7">\
+</tspan></text><text x="80.00px" y="118.60px" xml:space="preserve"><tspan fill="#afffd7"/>  --image $img <tspan fill="#afffd7">\
+</tspan></text><text x="80.00px" y="135.40px" xml:space="preserve"><tspan fill="#afffd7"/>  --share-processes <tspan fill="#afffd7">\
+</tspan></text><text x="80.00px" y="152.20px" xml:space="preserve"><tspan fill="#afffd7"/>  --copy-to<tspan fill="#ff7f83">=</tspan>$new_pod <tspan fill="#afffd7">\
+</tspan></text><text x="80.00px" y="169.00px" xml:space="preserve"><tspan fill="#afffd7"/>  --git-repository $url
 </text>
 </g>
 <svg x="60.00px" y="50.00px"><circle cx="13.50" cy="12.00" r="5.50" fill="#FF5A54"/><circle cx="32.50" cy="12.00" r="5.50" fill="#E6BF29"/><circle cx="51.50" cy="12.00" r="5.50" fill="#52C12B"/></svg><defs><filter id="shadow" filterUnits="userSpaceOnUse"><feGaussianBlur in="SourceAlpha" stdDeviation="24.00"/><feOffset result="offsetblur" dx="0.00" dy="12.00"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs></svg>

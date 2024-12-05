@@ -45,6 +45,7 @@ background: /normal-slide-background.svg
 ---
 layout: section
 hideInToc: true
+hide: true
 ---
 
 # But first...
@@ -78,6 +79,7 @@ kube control
 
 ---
 hideInToc: true
+hide: false
 layout: image
 image: ./kubectl-prononciation.svg
 backgroundSize: 60%
@@ -102,7 +104,7 @@ Blah blah blah
 layout: section
 ---
 
-# The Art of Debugging Pods
+# The Debugging Ceremony
 
 ---
 hideInToc: true
@@ -111,7 +113,7 @@ image: ./ritual.jpg
 backgroundSize: contain
 ---
 
-# The Pod Debug Ritual
+# The Debugging Ceremony
 A Neverending Story
 
 <br/>
@@ -154,16 +156,38 @@ Reference: https://kubernetes.io/docs/reference/kubectl/generated/kubectl_debug/
 
 ---
 hideInToc: true
-hide: true
+hide: false
 ---
 
 # `k debug`
-Pod Troubleshooting by Copy
+Debug by creating a copy of the target Pod
 
 <div grid="~ cols-2">
 
 <div>
-<img class="w-100 opacity-100"
+</div>
+
+<div>
+<img class="h-50 opacity-100"
+  src="./k-debug-classic-diagram-before.svg"
+  alt=""
+/>
+</div>
+
+</div>
+
+---
+hideInToc: true
+hide: false
+---
+
+# `k debug`
+Debug by creating a copy of the target Pod
+
+<div grid="~ cols-2">
+
+<div>
+<img class="align-self-end mr-3 w-100 opacity-100"
   src="./k-debug-classic.svg"
   alt=""
 />
@@ -187,7 +211,7 @@ https://github.com/kubernetes/enhancements/blob/master/keps/sig-cli/1441-kubectl
 
 ---
 hideInToc: true
-hide: false
+hide: true
 ---
 
 # `k debug`
@@ -291,8 +315,8 @@ hideInToc: true
 layout: two-cols-header
 ---
 
-# A CNCF Project to Run CDEs on Kubernetes 
-The DevWorkspace Kubernetes Operator
+# The DevWorkspace Kubernetes Operator 
+A CNCF Project to Run CDEs on Kubernetes
 
 ::left::
 
@@ -357,6 +381,8 @@ layout: section
 
 # Extending `kubectl`
 
+## `kubectl debug-cde`
+
 ---
 hideInToc: true
 layout: two-cols-header
@@ -402,6 +428,7 @@ https://github.com/kubernetes/sample-cli-plugin
 https://github.com/kubernetes/cli-runtime
  -->
 ---
+hide: true
 hideInToc: true
 layout: image
 image: ./k-debug-ide-help.svg
@@ -409,15 +436,41 @@ backgroundSize: 100%
 ---
 
 ```bash
-$ k debug-ide
+$ k debug-cde
 ```
+---
+hide: false
+hideInToc: true
+backgroundSize: 100%
+layout: two-cols-header
+---
+
+# `debug` vs `debug-cde`
+
+::left::
+
+<div>
+<img class="w-200 opacity-100"
+  src="./k-debug-classic.svg"
+  alt=""
+/>
+</div>
+
+::right::
+
+<div>
+<img class="w-200 opacity-100"
+  src="./k-debug-cde.svg"
+  alt=""
+/>
+</div>
 
 ---
 hideInToc: true
 ---
 
-# Demo 3
-`kubectl debug-ide`
+# Demo
+`kubectl debug-cde`
 
 <div>
 <img class="h-100 opacity-100"
@@ -433,6 +486,7 @@ hideInToc: true
 # Links
 To Learn More
 
+https://github.com/devfile/kubectl-debug-cde <br>
 https://kubernetes.io/docs/tasks/debug/debug-application/debug-running-pod/ <br>
 https://github.com/devfile/devworkspace-operator/tree/main <br>
 https://github.com/kubernetes/sample-cli-plugin <br>
