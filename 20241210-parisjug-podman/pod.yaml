@@ -1,0 +1,34 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: podpodman-cli
+  name: podpodman-cli
+spec:
+  containers:
+  - args:
+    - redis-server
+    - --appendonly
+    - "yes"
+    - --notify-keyspace-events
+    - Ex
+    image: docker.io/library/redis:alpine
+    name: redis
+    securityContext:
+      readOnlyRootFilesystem: true
+    volumeMounts:
+    - mountPath: /data
+      name: podman-cli_redis-pvc
+  - image: docker.io/library/hello-py-aioweb
+    name: podman-cliweb1
+    ports:
+    - containerPort: 8080
+      hostPort: 8080
+    securityContext:
+      readOnlyRootFilesystem: true
+  volumes:
+  - name: podman-cli_redis-pvc
+    persistentVolumeClaim:
+      claimName: podman-cli_redis
+
