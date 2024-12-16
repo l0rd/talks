@@ -2,7 +2,7 @@
 theme:
   name: light
 title: Podman CLI
-sub_title: A Docker-Compatible Next Generation Container Engine
+sub_title: Podman - The Next Generation Container Engine
 author: Mario Loriedo - Red Hat
 ---
 
@@ -50,14 +50,13 @@ Docker Compatibility
 ---
 <!-- end_slide -->
 
-<!-- jump_to_middle -->
 ![image](tweet.png)
 <!-- end_slide -->
 
 The simplest container
 ---
 ```bash +exec
-podman run hello
+podman run hellossss
 ```
 <!-- end_slide -->
 
@@ -99,12 +98,9 @@ curl -s \
 ```
 <!-- pause -->
 ```bash +exec
-podman run -t --rm \
-           -v $PWD:/volume fedora \
-           cat /volume/hello
+podman images
 ```
 <!-- end_slide -->
-
 
 podman compose
 ---
