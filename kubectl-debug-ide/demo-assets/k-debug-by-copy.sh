@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
-k debug -it outyet \
-      --image ghcr.io/l0rd/outyet-dev:latest \
-      --copy-to outyet-debug \
-      --share-processes -- bash     
- 
+pod=outyet
+img=golang
+new_pod=outyet-debug
+
+kubectl debug -it $pod \
+    --image $img \
+    --share-processes \
+    --copy-to=$new_pod

@@ -1,0 +1,30 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: webapp
+  name: webapp
+spec:
+  containers:
+  - name: redis
+    image: docker.io/library/redis:alpine
+    args: ["redis-server", "--appendonly", "yes", 
+           "--notify-keyspace-events", "Ex"]
+    securityContext:
+      readOnlyRootFilesystem: true
+    volumeMounts:
+    - mountPath: /data
+      name: webapp_redis-pvc
+  - name: web
+    image: docker.io/library/hello-py-aioweb
+    ports:
+    - containerPort: 8080
+      hostPort: 8080
+    securityContext:
+      readOnlyRootFilesystem: true
+  volumes:
+  - name: webapp_redis-pvc
+    persistentVolumeClaim:
+      claimName: webapp_redis
+
