@@ -35,29 +35,31 @@ Used to be Red Had governed but soon a CNCF Sandbox project. -->
 
 <!-- column: 0 -->
 
-![](pod-red-cncf.png)
+## First release in 2018
 
 <!-- pause -->
+
+#### Mostly Red Hat maintainers until now
+
+<!-- pause -->
+
+##### Recently accepted as a CNCF Project
 
 <!-- column: 1 -->
-```bash +exec
-podman run -d -p 8080:80 httpd
-```
-<!-- pause -->
-```bash +exec
-curl localhost:8080
-```
+
 <!-- pause -->
 ```bash +exec
 podman rm --force --all
 ```
 
-```shell
-$ podman run -d -p 8080:80 httpd
-bc9e281309d5a9d71f3cef0a48d76b1cc6097afbf2bd7...
+<!-- pause -->
+```bash +exec
+podman run -d -p 8080:80 httpd
+```
 
-$ curl localhost:8080
-<html><body><h1>It works!</h1></body></html>
+<!-- pause -->
+```bash +exec
+curl -s localhost:8080
 ```
 
 <!-- end_slide -->
@@ -100,65 +102,136 @@ language: yaml
 `podman kube play`
 ---
 
+<!-- column_layout: [1, 1] -->
+
+<!-- column: 0 -->
+
+```bash +exec
+podman rm --force --all && \
+podman volume rm --all
+```
+<!-- pause -->
+
 ```bash +exec
 podman kube play ./pod.yaml
 ```
 <!-- pause -->
+
+<!-- column: 1 -->
+```bash +exec
+podman ps --format "{{.Image}}"
+```
+<!-- pause -->
+
+```bash +exec
+podman volume ls
+```
+<!-- pause -->
+
 ```bash +exec
 curl -s localhost:8080
 ```
+
 <!-- pause -->
+
 ```bash +exec
 curl -s localhost:8080
 ```
-<!-- pause -->
-```bash +exec
-podman kube down ./pod.yaml
-```
+
 <!-- end_slide -->
 
 `podman kube play --build`
 ---
 
 ```bash +exec
-podman rmi localhost/hello-py-aioweb:latest
+podman rm --force --all && \
+podman volume rm --all
 ```
 <!-- pause -->
+
+```bash +exec
+podman rmi localhost/hello-py-aioweb:latest
+```
+
+<!-- end_slide -->
+
+`podman kube play --build`
+---
+
 ```bash +exec
 podman kube play ./pod.yaml --build
 ```
-<!-- pause -->
+
+<!-- end_slide -->
+
+`podman kube play --build`
+---
+
 ```bash +exec
-podman kube down ./pod.yaml
+podman images localhost/hello-py-aioweb:latest
 ```
+<!-- pause -->
+
+```bash +exec
+podman ps --format "{{.Image}}"
+```
+<!-- pause -->
+
+```bash +exec
+podman volume ls
+```
+<!-- pause -->
+
+```bash +exec
+curl -s localhost:8080
+```
+
 <!-- end_slide -->
 
 `podman kube generate`
 ---
 
 ```bash +exec
+podman rm --force --all
+```
+<!-- pause -->
+
+```bash +exec
 podman run -d -p 8080:80 httpd
 ```
 <!-- pause -->
+
+```bash +exec
+podman ps --format "{{.Image}}"
+```
+
+<!-- end_slide -->
+
+`podman kube generate`
+---
+
 ```bash +exec
 ID=$(podman ps --last 1 -q)
 podman kube generate ${ID}
 ```
-<!-- pause -->
-```bash +exec
-podman rm --force --all
-```
+
 <!-- end_slide -->
 
 Supported Kubernetes Objects
 ---
 
 ## Pods
+<!-- pause -->
 ## Deployments
+<!-- pause -->
 ## PersistentVolumeClaims
+<!-- pause -->
 ## ConfigMaps
+<!-- pause -->
 ## Secrets
+<!-- pause -->
 ## DaemonSets
+<!-- pause -->
 ## Jobs
 
 <!-- end_slide -->
@@ -166,10 +239,15 @@ Supported Kubernetes Objects
 More (Podman) Awesomeness
 ---
 
+<!-- pause -->
 #### Rootless and Daemonless
+<!-- pause -->
 #### Build Farms
+<!-- pause -->
 #### Image Volumes
+<!-- pause -->
 #### Quadlet
+<!-- pause -->
 #### Podmansh
 
 <!-- end_slide -->

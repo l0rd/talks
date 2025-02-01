@@ -17,7 +17,7 @@ spec:
     - mountPath: /data
       name: webapp_redis-pvc
   - name: web
-    image: docker.io/library/hello-py-aioweb
+    image: localhost/hello-py-aioweb:latest
     ports:
     - containerPort: 8080
       hostPort: 8080
