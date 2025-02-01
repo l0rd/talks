@@ -56,7 +56,7 @@ Docker Compatibility
 The simplest container
 ---
 ```bash +exec
-podman run hellossss
+podman run hello
 ```
 <!-- end_slide -->
 

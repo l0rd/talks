@@ -1,8 +1,8 @@
 ---
 theme:
-  name: light
+  name: catppuccin-latte
 title: Play with Kube using Podman
-sub_title: Podman - The Next Generation Container Engine
+# sub_title: Podman - The Next Generation Container Engine
 author: Mario Loriedo - Red Hat
 ---
 
@@ -11,56 +11,79 @@ Agenda
 
 ### Podman
 ### Kubernetes Pod
-### Podman Pod
 ### `podman kube play`
-### `podman kube play --build`
 ### Supported Kubernetes Objects
 ### `podman kube generate`
-### More podmaness podmanitude
+### More Awesomeness
 ### Resources
 
 <!-- end_slide -->
 
+<!-- jump_to_middle -->
 Podman
 ---
-We are at FOSDEM, containers room, I assuming everybody know Podman
-Or at least what a container engine is.
-Used to be Red Had governed but soon a CNCF Sandbox project.
-<!-- pause -->
-```bash +exec
-podman run hello
-```
 <!-- end_slide -->
 
+Podman
+---
+
+<!-- We are at FOSDEM, containers room, I assuming everybody know Podman
+Or at least what a container engine is.
+Used to be Red Had governed but soon a CNCF Sandbox project. -->
+<!-- column_layout: [2, 1] -->
+
+<!-- column: 0 -->
+```shell
+$ podman run -d -p 8080:80 httpd
+bc9e281309d5a9d71f3cef0a48d76b1cc6097afbf2bd7...
+
+$ curl localhost:8080
+<html><body><h1>It works!</h1></body></html>
+```
+
+<!-- column: 1 -->
+
+![](pod-red-cncf.png)
+
+<!-- end_slide -->
+
+<!-- 
 Podman Pods
 ---
 
-<!-- pause -->
-```bash +exec
 podman pod create -p 8080:80 --name mypod
 podman create --pod mypod --name myapp httpd
 podman pod start mypod
 podman ps
-```
 
-<!-- pause -->
-```bash +exec
 podman pod stop mypod
 podman pod rm mypod
-```
+
+-->
+
+<!-- jump_to_middle -->
+Kubernetes Pod
+---
 <!-- end_slide -->
 
-Kubernetes Pods
+Kubernetes Pod
 ---
-*Kubernetes Pods without Kubernetes*
-```file {10-18|19-25|26-29} +line_numbers
+```file {1-30|10-18|19-25|26-29} +line_numbers
 path: pod.yaml
 language: yaml
 ```
 <!-- end_slide -->
 
+<!-- jump_to_middle -->
+
 `podman kube play`
 ---
+
+<!-- end_slide -->
+
+`podman kube play`
+---
+
 ```bash +exec
 podman kube play ./pod.yaml
 ```
@@ -108,7 +131,7 @@ Supported Kubernetes Objects
 
 `podman kube generate`
 ---
-*From local containers to Kubernetes Pods*
+
 ```bash +exec
 podman run -d -p 8080:80 httpd
 ```
@@ -123,7 +146,7 @@ podman rm --force --all
 ```
 <!-- end_slide -->
 
-More Podman Awesomeness
+More (Podman) Awesomeness
 ---
 
 - Rootless and Daemonless
@@ -139,7 +162,7 @@ To Learn More
 
 - https://podman.io
 - The Source Code [github.com/containers/](https://github.com/container/)
-- Axel Talk about Quadlets in a few hours
+- Axel Talk about Quadlets at 3:30pm
 - https://github.com/mfontanini/presenterm
 
 <!-- end_slide -->
