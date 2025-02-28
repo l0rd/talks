@@ -1,0 +1,15 @@
+- [x] Does containerd supports it? Support is planned vor version 2.1
+- [ ] Podman demo
+- [ ] Diagram that shows an image in anoter image
+- [ ] Make slide for Imagine If...
+- [ ] Make slide for KEP-4639
+- [ ] Make slide for Feature compatibility
+- [ ] Make slide for Spec
+- [ ] Make slide for Images and OCI Artifacts
+- [ ] Make slide for AI models
+- [ ] Make slide for Tools Injection
+- [ ] Make slide for Ouside of the Cluster
+- [ ] Publish it to netlify (or mario.lorie.do/slides/imgvol would be even better)
+- [ ] Set Iosevka as the default Font
+- [ ] Export to PowerPoint
+- Add QR codes that point to the slides and to the feedback page
