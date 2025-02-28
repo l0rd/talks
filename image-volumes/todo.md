@@ -1,4 +1,5 @@
 - [x] Does containerd supports it? Support is planned vor version 2.1
+- [ ] Kubernetes demo (minikube, kind or ocp dev)
 - [ ] Podman demo
 - [ ] Diagram that shows an image in anoter image
 - [ ] Make slide for Imagine If...
