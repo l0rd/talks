@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -euf
+
+podman rm --force --all > /dev/null 2>&1
+podman volume rm --all > /dev/null 2>&1
+# podman image exists localhost/hello-py-aioweb:latest && podman rmi localhost/hello-py-aioweb:latest > /dev/null 2>&1 || true
+echo "Done."

@@ -49,7 +49,7 @@ Used to be Red Had governed but soon a CNCF Sandbox project. -->
 
 <!-- pause -->
 ```bash +exec
-podman rm --force --all
+./clean
 ```
 
 <!-- pause -->
@@ -107,8 +107,7 @@ language: yaml
 <!-- column: 0 -->
 
 ```bash +exec
-podman rm --force --all && \
-podman volume rm --all
+./clean
 ```
 <!-- pause -->
 
@@ -144,8 +143,7 @@ curl -s localhost:8080
 ---
 
 ```bash +exec
-podman rm --force --all && \
-podman volume rm --all
+./clean
 ```
 <!-- pause -->
 
@@ -192,7 +190,7 @@ curl -s localhost:8080
 ---
 
 ```bash +exec
-podman rm --force --all
+./clean
 ```
 <!-- pause -->
 
@@ -257,7 +255,6 @@ Resources To Learn More
 
 ### [podman.io](https://podman.io)
 ### [github.com/containers/](https://github.com/container/)
-### **Axel Talk about Quadlets at 3:30pm**
 ### [presenterm](https://github.com/mfontanini/presenterm)
 ### [this deck](https://github.com/l0rd/talks/tree/gh-pages/podman-kube-play)
 
