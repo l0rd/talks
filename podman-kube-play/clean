@@ -2,6 +2,7 @@
 
 set -euf
 
+# podman image exists docker.io/library/httpd:latest && podman rmi docker.io/library/httpd:latest > /dev/null 2>&1 || true
 podman rm --force --all > /dev/null 2>&1
 podman volume rm --all > /dev/null 2>&1
 # podman image exists localhost/hello-py-aioweb:latest && podman rmi localhost/hello-py-aioweb:latest > /dev/null 2>&1 || true
